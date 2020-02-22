@@ -25,5 +25,5 @@ function createAccount(e) {
         log("Passwords do not match. Try again.")
     }
     
-    else {location.href = "index.html"}
+    else {location.href = "../index/index.html"}
 }
