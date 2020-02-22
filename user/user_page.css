@@ -1,0 +1,51 @@
+.nav {
+    overflow: hidden;
+    background-color: blue;
+    border-radius: 5px;
+}
+
+.nav a {
+    float: left;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav a:hover {
+    color: blue;
+    background-color: white;
+}
+
+.nav a.logout {
+    float: right;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+a.changePassword {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100px;
+    height: 25px;
+    background-color: #00FFFF;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #008B8B;
+}
