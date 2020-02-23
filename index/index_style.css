@@ -74,14 +74,11 @@ h1 {
     background-color: #008B8B;
 }
 
-.signUp {
+.box .signUp {
+    display: block;
     text-align: center;
 }
 
-.signUp a {
-    text-decoration: none;
-}
-
-.signUp a:hover {
+.box .signUp:hover {
     color: gold;
 }

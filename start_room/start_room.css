@@ -1,6 +1,10 @@
+body {
+    background-color: rgb(210, 232, 241);
+}
+
 .nav {
     overflow: hidden;
-    background-color: blue;
+    background-color: #00BFFF;
     border-radius: 5px;
 }
 
@@ -20,6 +24,6 @@
     background-color: white;
 }
 
-.nav a.logout {
+.nav a.logout, a.exit {
     float: right;
 }

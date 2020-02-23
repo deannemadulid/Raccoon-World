@@ -7,17 +7,25 @@
 </head>
 <body>
     <div class="nav">
-        <a class="active" href="#about">About</a>
+        <a href="#about">About</a>
         <a href="#help">Help</a>
     </div>
     
-    <form id='createAccount'>
-        <input id="uName" type="text" name="username" placeholder="Username">
-        <input id="uPass" type="text" name="password" placeholder="Password">
-        <input id="uRePass" type="text" name="enterpassword" placeholder="Re-enter Password">
-        <input type="submit" value="Create Account">
+    <div class="box">
+        <form id='createAccount'>
+            <p>Username</p>
+            <input id="uName" type="text" name="username" placeholder="Username">
+            <p>Password</p>
+            <input id="uPass" type="text" name="password" placeholder="Password">
+            <p>Re-enter Password</p>
+            <input id="uRePass" type="text" name="enterpassword" placeholder="Re-enter Password">
+            <input type="submit" value="Create Account">
 
-    </form>
+        </form>
+
+        <a class="back" href="../index/index.html">Back</a>
+
+    </div>  
 
     <script type="text/javascript" src="sign_up.js"></script>
 </body>
