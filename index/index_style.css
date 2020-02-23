@@ -1,6 +1,10 @@
+body {
+    background-color: rgb(210, 232, 241);
+}
+
 .nav {
     overflow: hidden;
-    background-color: blue;
+    background-color: #00BFFF;
     border-radius: 5px;
 }
 
@@ -20,34 +24,53 @@
     background-color: white;
 }
 
+.box {
+    width: 300px;
+    height: 400px;
+    background-color: rgb(129, 144, 185);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    box-shadow: 3px 3px 2px grey;
+}
+
 h1 {
     text-align: center;
+    color: white;
 }
 
-#signIn {
-    display: block;
+.box p {
+    font-weight: bold;
+    margin: 0;
     text-align: center;
+    margin-top: 20px;
 }
 
-input {
+.box input {
     width: 250px;
     height: 30px;
     margin-top: 10px;
     margin-bottom: 5px;
     display: block;
-    text-align: center;
     margin-left: auto;
     margin-right: auto;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid black;
 }
 
-input[type="submit"] {
+.box input[type="submit"] {
     background-color: #00FFFF;
+    height: 40px;
+    margin-bottom: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.box input[type="submit"]:hover {
     background-color: #008B8B;
 }
 
@@ -57,4 +80,8 @@ input[type="submit"]:hover {
 
 .signUp a {
     text-decoration: none;
+}
+
+.signUp a:hover {
+    color: gold;
 }
