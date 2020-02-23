@@ -2,6 +2,23 @@
 const log = console.log;
 
 const chat = document.querySelector('#chat')
+const chatlog = chat.firstElementChild
+let chatScrolled = false
+
+// Check whether or not the chatlog is scrolled down fully
+chatlog.addEventListener('scroll', function(){
+    if (chatlog.scrollTop == chatlog.scrollHeight - chatlog.clientHeight) {
+        chatScrolled = false
+    }
+    else { chatScrolled = true }
+})
+
+// Force chatlog to scroll to most recent message, unless client scrolled
+window.setInterval(function() {
+    if (!chatScrolled) {
+        chatlog.scrollTop = chatlog.scrollHeight
+    }
+}, 0)
 
 // Event listener to add new message
 chat.addEventListener('click', addMsgByClick)
@@ -39,7 +56,6 @@ function addMessage() {
     newMsgBody.classList.add('chatMsg')
     newMsgBody.appendChild(document.createTextNode("[User]: " + msgText))
 
-    const chatlog = chat.firstElementChild
     chatlog.appendChild(newMsgBody)
 
     // Clear message in input line
