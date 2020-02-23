@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ 	<meta charset="utf-8">
+    <title>User</title>
+    <link rel="stylesheet" type="text/css" href="users_list.css">
+ </head>
+ <body>
+    <div class="nav">
+        <a href="#about">About</a>
+        <a href="#help">Help</a>
+        <a class="logout" href="../index/index.html">Log Out</a>
+    </div>
+
+    <h1>Users</h1>
+   
+    <form id='user_search'>
+        <input type="text" placeholder="Enter a username">
+        <button id='search_button'>Search</button>
+    </form>
+    
+    <table id='user_table'>
+        <tr>
+            <th class='avatar'>[Insert User Avatar]</th>
+            <th class='username'>johnsmith</th>
+        </tr>
+        <tr>
+            <th class='avatar'>[Insert User Avatar]</th>
+            <th class='username'>bob222</th>
+        </tr>
+    </table>
+
+    <button id='go_back' onclick="location.href = 'admin.html';" id="myButton">Go Back</button>
+
+ </body>
+</html>

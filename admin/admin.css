@@ -1,0 +1,60 @@
+body {
+    background-color: rgb(210, 232, 241);
+}
+
+.nav {
+    overflow: hidden;
+    background-color: #00BFFF;
+    border-radius: 5px;
+}
+
+.nav a {
+    float: left;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav a:hover {
+    color: blue;
+    background-color: white;
+}
+
+.nav a.logout {
+    float: right;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+a.viewProfile {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+a.viewProfile:hover {
+    color: gold;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    background-color: #00FFFF;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #008B8B;
+}
