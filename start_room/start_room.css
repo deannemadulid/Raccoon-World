@@ -27,3 +27,28 @@ body {
 .nav a.logout, a.exit {
     float: right;
 }
+
+.chat {
+    margin-left: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    float: left;
+    background-color: lightgrey;
+    border-radius: 10px;
+    min-width: 300px;
+    height: 400px;
+    width: 20%;
+}
+.chatlog {
+    height: 360px;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+}
+.chatMsg {
+    margin-bottom: 5px;
+    list-style-type: none;
+}
+.newMsg {
+    width: 95%;
+}
