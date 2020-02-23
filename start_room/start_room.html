@@ -12,12 +12,14 @@
         <a class="logout" href="../index/index.html">Log Out</a>
         <a class="exit" href="../user/user.html">Exit Game</a>
     </div>
-    <div class="chat">
-        <div class="chatlog">
-            <li class="chatMsg">Welcome! Type a message below to chat.</li>
+    <div id="chat">
+        <div id="chatlog">
+            <li class="chatMsg" style='color:rgb(119, 119, 119)'>Welcome! Type a message below to chat.</li>
         </div>
-        <input class="newMsg" placeholder="Chat here">
+        <input id="newMsg" type='text' placeholder="Chat here">
+        <button id="newMsgSubmit">post</button>
     </div>
     
+    <script type="text/javascript" src="start_room.js"></script>
 </body>
 </html>

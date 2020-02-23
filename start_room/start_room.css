@@ -28,7 +28,7 @@ body {
     float: right;
 }
 
-.chat {
+#chat {
     margin-left: 10px;
     margin-top: 15px;
     padding: 10px;
@@ -39,9 +39,10 @@ body {
     height: 400px;
     width: 20%;
 }
-.chatlog {
+#chatlog {
     height: 360px;
     margin-bottom: 10px;
+    padding-right: 4px;
     overflow-y: scroll;
     overflow-wrap: break-word;
 }
@@ -49,6 +50,12 @@ body {
     margin-bottom: 5px;
     list-style-type: none;
 }
-.newMsg {
-    width: 95%;
+#newMsg {
+    width: 75%;
+}
+#newMsgSubmit {
+    width: 20%;
+    background-color: rgb(173, 230, 201);
+    color: rgb(23, 5, 102);
+    border-radius: 8px;
 }
