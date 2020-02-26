@@ -59,3 +59,31 @@ body {
     color: rgb(23, 5, 102);
     border-radius: 8px;
 }
+
+#gameView {
+    margin-left: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    float: left;
+    background-color: #00BFFF;
+    border-radius: 10px;
+    height: 400px;
+    width: 600px;
+}
+
+#worldView {
+    position: absolute;
+}
+
+.raccoons div {
+    position: absolute;
+}
+
+.raccoons img {
+    max-width: 60px;
+}
+
+.raccoons p {
+    margin-top: 0px;
+    text-align: center;
+}
