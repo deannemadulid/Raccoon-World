@@ -28,8 +28,17 @@ body {
     float: right;
 }
 
+#main {
+  margin: auto;
+  margin-top: 15px;
+  background-color: #00BFFF;
+  border-radius: 10px;
+  width: 980px;
+  height: 450px
+}
+
 #chat {
-    margin-left: 10px;
+    margin-left: 15px;
     margin-top: 15px;
     padding: 10px;
     float: left;
@@ -62,10 +71,11 @@ body {
 
 #gameView {
     margin-left: 10px;
+    margin-right: 15px;
     margin-top: 15px;
     padding: 10px;
     float: left;
-    background-color: #00BFFF;
+    background-color: lightgrey;
     border-radius: 10px;
     height: 400px;
     width: 600px;
