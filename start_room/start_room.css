@@ -85,7 +85,15 @@ body {
     position: absolute;
 }
 
-.raccoons div {
+#arrow {
+    position: absolute;
+}
+
+.arrows img {
+    max-width: 50px;
+}
+
+#raccoon {
     position: absolute;
 }
 
