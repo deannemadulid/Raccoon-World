@@ -24,14 +24,44 @@ body {
     background-color: white;
 }
 
+h2 {
+    margin-left: 20%;
+}
+
+.raccoons {
+    margin-top: 20px;
+    margin-left: 10%;
+}
+
+#raccoon {
+    max-width: 100px;
+    max-height: 200px;
+    display: inline-block;
+    margin-bottom: 60px;
+    margin-left: 35px;
+    opacity: 0.7;
+}
+
+#raccoon:hover, #raccoon:focus {
+    max-width: 135px;
+    max-height: 235px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    cursor: pointer;
+}
+
+#raccoon:focus {
+    opacity: 1;
+}
+
 .box {
     width: 300px;
     height: 400px;
     background-color: rgb(129, 144, 185);
-    top: 50%;
-    left: 50%;
+    top: 0;
+    right: 0;
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-80%, 25%);
     border-radius: 3px;
     box-shadow: 3px 3px 2px grey;
 }
