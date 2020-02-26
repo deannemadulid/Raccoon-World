@@ -54,28 +54,41 @@ h1, h2 {
     text-align: center;
 }
 
-#user_search {
-    text-align: center;
-    display: inline-block;
-    width: 100%;
-    margin: auto;
+#top_bar {
+    /*width: 100%;*/
+    display: block;
+    /*margin: auto;*/
+    margin-left: 25%;
+    margin-right:25%;
+    width: %;
+    /*padding-left: 30%;*/
 }
 
 input[type=text], select, textarea {
-    width: 20%;
+    width: 45%;
     padding: 12px;
+    margin-left: 2px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
     position: relative;
 }
 
+.top_buttons {
+    border-radius: 5px;
+    height: 40px;
+}
+
 #search_button {
     background-color: #9da3a5;
-    position: relative;
-    border-radius: 5px;
-    width: 75px;
-    height: 40px;
+    width: 70px;
+    display: inline-block;
+}
+
+#add_user_button {
+    background-color: lightgreen;
+    float: right;
+    margin-right: 7px;
 }
 
 #go_back {
@@ -92,5 +105,4 @@ input[type=text], select, textarea {
 #go_back:hover {
     background-color: #008B8B;
 }
-
 
