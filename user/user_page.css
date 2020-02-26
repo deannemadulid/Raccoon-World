@@ -28,18 +28,26 @@ body {
     float: right;
 }
 
-h1, h2 {
+h1 {
     text-align: center;
 }
 
-a.changePassword {
+#raccoon {
+    max-width: 200px;
+    max-height: 400px;
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+a.changePassword, a.changeAvatar {
     text-align: center;
     text-decoration: none;
     display: block;
     margin-bottom: 10px;
 }
 
-a.changePassword:hover {
+a.changePassword:hover, a.changeAvatar:hover {
     color: gold;
 }
 

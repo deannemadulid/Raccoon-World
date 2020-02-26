@@ -28,38 +28,53 @@ body {
     float: right;
 }
 
-h1 {
+h1, h2 {
+    text-align: center;
+}
+
+.raccoons {
+    margin-top: 75px;
     text-align: center;
 }
 
 #raccoon {
-    max-width: 200px;
-    max-height: 400px;
-    display: block;
-    margin: auto;
+    max-width: 100px;
+    max-height: 200px;
+    display: inline-block;
     margin-bottom: 15px;
+    margin-left: 25px;
 }
 
-a.viewProfile {
+#raccoon:hover {
+    max-width: 135px;
+    max-height: 235px;
+    cursor: pointer;
+}
+
+a.changePassword, a.changeAvatar {
     text-align: center;
     text-decoration: none;
     display: block;
     margin-bottom: 10px;
 }
 
-a.viewProfile:hover {
+a.changePassword:hover, a.changeAvatar:hover {
     color: gold;
 }
 
 button {
-    width: 150px;
-    height: 50px;
+    height: 30px;
     background-color: #00FFFF;
     border: none;
     cursor: pointer;
     margin: 0 auto;
     display: block;
     border-radius: 5px;
+    position: absolute;
+    bottom: 10%;
+    margin-left: 46%;
+    margin-right: 46%;
+    width: 8%;
 }
 
 button:hover {
