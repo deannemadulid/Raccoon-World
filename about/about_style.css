@@ -1,0 +1,43 @@
+body {
+    background-color: rgb(210, 232, 241);
+}
+
+.nav {
+    overflow: hidden;
+    background-color: #00BFFF;
+    border-radius: 5px;
+}
+
+.nav a {
+    float: left;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav a:hover {
+    color: blue;
+    background-color: white;
+}
+
+.infoBox {
+    width: 700px;
+    height: 500px;
+    background-color: rgb(111, 173, 144);
+    top: 50%;
+    left: 50%;
+    padding: 12px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    box-shadow: 3px 3px 2px grey;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
