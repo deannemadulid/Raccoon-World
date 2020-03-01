@@ -7,31 +7,33 @@
  </head>
  <body>
     <div class="nav">
-        <a href="../about/about.html">About</a>
-        <a href="../help/help.html">Help</a>
-        <a class="logout" href="../index/index.html">Log Out</a>
+        <a href="../../about/about.html">About</a>
+        <a href="../../help/help.html">Help</a>
+        <a class="logout" href="../../index/index.html">Log Out</a>
     </div>
 
-    <form id='top_bar'>
+    <div id='top_bar'>
         <input type="text" placeholder="Search for a user">
         <button class='top_buttons' id='search_button'>Search</button>
         <button class='top_buttons' id='add_user_button'>Add new user</button>
-    </form>
+    </div>
     
     <table id='user_table'>
         <tr>
-            <th><img class="avatar" src="../images/raccoonBlue.png"></th>
+            <th><img class="avatar" src="../../images/raccoonBlue.png"></th>
             <th class='username'>johnsmith</th>
             <th><button class='modify_user_button>'>Edit User</button></th>
         </tr>
         <tr>
-            <th><img class="avatar" src="../images/raccoonPink.png"></th>
+            <th><img class="avatar" src="../../images/raccoonPink.png"></th>
             <th class='username'>bob222</th>
             <th><button class='modify_user_button>'>Edit User</button></th>
         </tr>
     </table>
 
     <button id='go_back' onclick="location.href = 'admin.html';" id="myButton">Go Back</button>
+
+    <script type="text/javascript" src="users_list.js"></script>
 
  </body>
 </html>

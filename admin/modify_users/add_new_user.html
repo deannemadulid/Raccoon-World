@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <title>Add new user</title>
+    <link rel="stylesheet" type="text/css" href="add_new_user.css">
+ </head>
+ <body> 
+    <div class="nav">
+        <a href="../../about/about.html">About</a>
+        <a href="../../help/help.html">Help</a>
+        <a class="logout" href="../../index/index.html">Log Out</a>
+    </div>
+
+    <h1>Add a new user</h1>
+
+    <form id="add_user_form">
+        <div class="field">
+            <label for="new_username" class="field_name">Username:</label>
+            <input id="new_username" class="field_input" type="text" placeholder="Enter a new username">
+        </div>
+        <div class="field">
+            <label for="new_password"class="field_name">Password:</label>
+            <input id="new_password" class="field_input" type="text" placeholder="Enter a new password">
+        </div>
+        <div class="field">
+            <label class="field_name">Pick an avatar:</label>
+
+            <div id="raccoons">
+                <label>
+                    <input type="radio" id="pink" name="avatar" value="pink" checked>
+                    <img class="avatar" id="rac_pink" src="../../images/raccoonPink.png">
+                </label>
+                <label>
+                    <input type="radio" id="brown" name="avatar" value="brown">
+                    <img class="avatar" id="rac_brown" src="../../images/raccoonBrown.png">
+                </label>
+                <label>
+                    <input type="radio" id="green" name="avatar" value="green">
+                    <img class="avatar" id="rac_green" src="../../images/raccoonGreen.png">
+                </label>
+                <label>
+                    <input type="radio" id="blue" name="avatar" value="blue">
+                    <img class="avatar" id="rac_blue" src="../../images/raccoonBlue.png">
+                </label>
+                <label>
+                    <input type="radio" id="red" name="avatar" value="red">
+                    <img class="avatar" id="rac_red" src="../../images/raccoonRed.png">
+                </label>
+                <label>
+                    <input type="radio" id="yellow" name="avatar" value="yellow">
+                    <img class="avatar" id="rac_yellow" src="../../images/raccoonYellow.png">
+                </label>
+
+            </div>
+        </div>
+
+        <div id="form_buttons">
+        <button id="add_user">Add new user</button>
+        <button id="cancel">Cancel</button>
+    </form>
+
+    <script type="text/javascript" src="add_new_user.js"></script>
+</body>
+</html>

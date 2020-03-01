@@ -83,6 +83,11 @@ input[type=text], select, textarea {
     margin-right: 7px;
 }
 
+#add_user_button:hover {
+    background-color: greenyellow;
+    cursor: pointer;
+}
+
 #go_back {
     width: 100px;
     height: 25px;
