@@ -85,23 +85,23 @@ body {
     position: absolute;
 }
 
-#arrow {
+.arrow {
     position: absolute;
 }
 
-.arrows img {
+.arrow img {
     max-width: 50px;
 }
 
-#raccoon {
+.raccoon {
     position: absolute;
 }
 
-.raccoons img {
+.raccoon img {
     max-width: 60px;
 }
 
-.raccoons p {
+.raccoon p {
     margin-top: 0px;
     text-align: center;
 }
