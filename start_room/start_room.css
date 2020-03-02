@@ -87,6 +87,7 @@ body {
 
 .arrow {
     position: absolute;
+    visibility: hidden;
 }
 
 .arrow img {
@@ -95,6 +96,7 @@ body {
 
 .raccoon {
     position: absolute;
+    visibility: hidden;
 }
 
 .raccoon img {

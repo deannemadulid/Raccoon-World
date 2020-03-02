@@ -34,6 +34,7 @@ function placeRaccoons() {
     for (let i = 0; i < raccoonsList.length; i++) {
         raccoonsList[i].style.left = raccoon_positions[i].x;
         raccoonsList[i].style.top = raccoon_positions[i].y;
+        raccoonsList[i].style.visibility = "visible"
     }
 }
 
@@ -42,6 +43,7 @@ function placeArrows() {
         arrowsList[i].style.left = arrows[i].x;
         arrowsList[i].style.top = arrows[i].y;
         arrowsList[i].querySelector(".arrowImg").src = arrows[i].img_path;
+        arrowsList[i].style.visibility = "visible"
     }
 }
 
