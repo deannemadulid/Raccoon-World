@@ -13,23 +13,16 @@
     </div>
 
     <div id='top_bar'>
-        <input type="text" placeholder="Search for a user">
+        <input id='search_user' type="text" placeholder="Search for a user">
         <button class='top_buttons' id='search_button'>Search</button>
+        <button class='top_buttons' id='clear_button'>Clear search</button>
         <button class='top_buttons' id='add_user_button'>Add new user</button>
     </div>
+
+    <h4><div id='no_results'></div></h4>
     
-    <table id='user_table'>
-        <tr>
-            <th><img class="avatar" src="../../images/raccoonBlue.png"></th>
-            <th class='username'>johnsmith</th>
-            <th><button class='modify_user_button'>Edit User</button></th>
-        </tr>
-        <tr>
-            <th><img class="avatar" src="../../images/raccoonPink.png"></th>
-            <th class='username'>bob222</th>
-            <th><button class='modify_user_button'>Edit User</button></th>
-        </tr>
-    </table>
+    <table id='user_table' class='tables'></table>
+    <table id='search_table' class='tables'></table>
 
     <button id='go_back' onclick="location.href = 'admin.html';" id="myButton">Go Back</button>
 
