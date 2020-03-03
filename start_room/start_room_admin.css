@@ -1,0 +1,109 @@
+body {
+    background-color: rgb(210, 232, 241);
+}
+
+.nav {
+    overflow: hidden;
+    background-color: #00BFFF;
+    border-radius: 5px;
+}
+
+.nav a {
+    float: left;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav a:hover {
+    color: blue;
+    background-color: white;
+}
+
+.nav a.logout, a.exit {
+    float: right;
+}
+
+#main {
+  margin: auto;
+  margin-top: 15px;
+  background-color: #00BFFF;
+  border-radius: 10px;
+  width: 980px;
+  height: 450px
+}
+
+#chat {
+    margin-left: 15px;
+    margin-top: 15px;
+    padding: 10px;
+    float: left;
+    background-color: lightgrey;
+    border-radius: 10px;
+    min-width: 300px;
+    height: 400px;
+    width: 20%;
+}
+#chatlog {
+    height: 360px;
+    margin-bottom: 10px;
+    padding-right: 4px;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+}
+.chatMsg {
+    margin-bottom: 5px;
+    list-style-type: none;
+}
+#newMsg {
+    width: 75%;
+}
+#newMsgSubmit {
+    width: 20%;
+    background-color: rgb(173, 230, 201);
+    color: rgb(23, 5, 102);
+    border-radius: 8px;
+}
+
+#gameView {
+    margin-left: 10px;
+    margin-right: 15px;
+    margin-top: 15px;
+    padding: 10px;
+    float: left;
+    background-color: lightgrey;
+    border-radius: 10px;
+    height: 400px;
+    width: 600px;
+}
+
+#worldView {
+    position: absolute;
+}
+
+.arrow {
+    position: absolute;
+    visibility: hidden;
+}
+
+.arrow img {
+    max-width: 50px;
+}
+
+.raccoon {
+    position: absolute;
+    visibility: hidden;
+}
+
+.raccoon img {
+    max-width: 60px;
+}
+
+.raccoon p {
+    margin-top: 0px;
+    text-align: center;
+}

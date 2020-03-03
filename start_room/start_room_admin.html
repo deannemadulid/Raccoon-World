@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Start Room</title>
+    <link rel="stylesheet" type="text/css" href="start_room_admin.css">
+</head>
+<body>
+    <div class="nav">
+        <a href="../about/about.html">About</a>
+        <a href="../help/help.html">Help</a>
+        <a class="logout" href="../index/index.html">Log Out</a>
+        <a class="exit" href="../admin/admin.html">Exit Game</a>
+    </div>
+
+    <div id="main">
+        <div id="chat">
+            <div id="chatlog">
+                <li class="chatMsg" style='color:rgb(119, 119, 119)'>Welcome! Type a message below to chat.</li>
+            </div>
+            <input id="newMsg" type='text' placeholder="Chat here">
+            <button id="newMsgSubmit">post</button>
+        </div>
+
+        <div id="gameView">
+            <div id="worldView">
+                <img class="backdrop">
+
+                    <div class="arrow">
+                      <a href="#nextRoom">
+                        <img class="arrowImg">
+                      </a>
+                    </div>
+                    <div class="arrow">
+                      <a href="#nextRoom">
+                        <img class="arrowImg">
+                      </a>
+                    </div>
+                    <div class="arrow">
+                      <a href="#nextRoom">
+                        <img class="arrowImg">
+                      </a>
+                    </div>
+
+                    <div class="raccoon">
+                        <img src="../images/raccoonPink.png">
+                        <p>George</p>
+                    </div>
+                    <div class="raccoon">
+                        <img src="../images/raccoonBrown.png">
+                        <p>Admin</p>
+                    </div>
+                    <div class="raccoon"s>
+                        <img src="../images/raccoonGreen.png">
+                        <p>User</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="start_room_admin.js"></script>
+    <script type="text/javascript" src="game_world.js"></script>
+</body>
+</html>
