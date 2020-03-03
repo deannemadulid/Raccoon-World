@@ -8,6 +8,7 @@ There are also links on the navigation bar leading to "About" and "Help" pages.
 Log in with username "user" and password "user".
 
 This takes you to the User page.
+Once logged in, every screen will have a "Log Out" button which returns you to the index page.
 From here, you can click "View Profile" to go to a page with links to other
 pages where you will be able to change your password or avatar.
 Click on "Enter Game".
@@ -23,4 +24,30 @@ to return to the index page.
 As an Admin:
 Start by opening the file index/index.html in your browser.
 Log in with username "admin" and password "admin".
-//TODO explain admin functionality
+
+This takes you to the Admin page.
+Once logged in, every screen will have a "Log Out" button which returns you to the index page.
+From here, you can click "View Profile" to go to a page with links to other
+pages where you will be able to change your password.
+You can click on "Enter Game" or "View/Modify Users".
+
+Clicking on "Enter Game" takes you to the game screen.
+You will be able to see and chat with other users if they are in the same room
+as you. You will be able to travel between rooms by clicking on the orange
+arrows.
+From here, you can click on "Exit Game" to return to the admin page, or "Log Out"
+to return to the index page.
+
+Clicking on "View/Modify Users" takes you to the user list screen.
+All currently signed up users will be listed in this table.
+You can click on "Add new user" or "Edit User" which is next to each user.
+
+Clicking on "Add new user" takes you to the new user page.
+Here you can create a new user with a username and password and pick an avatar for them.
+You can either click "Add new user" to create the user or "Cancel" to go back to the previous page.
+
+Clicking on "Edit User" takes you to the page to edit the selected user.
+Here you will be able to click "Edit avatar" to change the users avatar.
+You can also click "Edit" next to the "Username" or "Password" to change the
+users current username and password.
+You can click "Save changes" to return you to the user list page or "Cancel" to do the same without saving.
