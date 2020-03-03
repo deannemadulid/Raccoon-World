@@ -104,30 +104,16 @@ body {
     max-width: 50px;
 }
 
-#green, #brown, #pink {
+.raccoon {
     position: absolute;
+    visibility: hidden;
 }
 
-#green img, #brown img, #pink img {
+.raccoon img {
     max-width: 60px;
 }
 
-#green p, #brown p, #pink p {
+.raccoon p {
     margin-top: 0px;
     text-align: center;
-}
-
-#green {
-    left: 235px;
-    top: 230px;
-}
-
-#brown {
-    left: 400px;
-    top: 130px;
-}
-
-#pink {
-    left: 160px;
-    top: 100px;
 }
