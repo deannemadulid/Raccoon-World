@@ -124,6 +124,9 @@ button:hover {
     background-color: lightgrey;
 }
 
+#edit_avatar {
+    width: 100px;
+}
 
 #curr_avatar {
     margin-top: 10px;
