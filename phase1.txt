@@ -15,8 +15,8 @@ Click on "Enter Game".
 
 This takes you to the game screen.
 You will be able to see and chat with other users if they are in the same room
-as you. You will be able to travel between rooms by clicking on the orange
-arrows.
+as you. You will be able to travel between rooms by clicking on the orange arrows.
+You can move around the room by using the arrow keys.
 From here, you can click on "Exit Game" to return to the user page, or "Log Out"
 to return to the index page.
 
@@ -33,8 +33,8 @@ You can click on "Enter Game" or "View/Modify Users".
 
 Clicking on "Enter Game" takes you to the game screen.
 You will be able to see and chat with other users if they are in the same room
-as you. You will be able to travel between rooms by clicking on the orange
-arrows.
+as you. You will be able to travel between rooms by clicking on the orange arrows.
+You can move around the room by using the arrow keys.
 From here, you can click on "Exit Game" to return to the admin page, or "Log Out"
 to return to the index page.
 
@@ -48,6 +48,5 @@ You can either click "Add new user" to create the user or "Cancel" to go back to
 
 Clicking on "Edit User" takes you to the page to edit the selected user.
 Here you will be able to click "Edit avatar" to change the users avatar.
-You can also click "Edit" next to the "Username" or "Password" to change the
-users current username and password.
+You can also click "Edit" next to the "Username" or "Password" to change the users current username and password.
 You can click "Save changes" to return you to the user list page or "Cancel" to do the same without saving.
