@@ -1,0 +1,26 @@
+How to use Team 53's Web Application:
+
+
+As a User:
+Start by opening the file index/index.html in your browser.
+From here, you can log in or go to the account sign up page.
+There are also links on the navigation bar leading to "About" and "Help" pages.
+Log in with username "user" and password "user".
+
+This takes you to the User page.
+From here, you can click "View Profile" to go to a page with links to other
+pages where you will be able to change your password or avatar.
+Click on "Enter Game".
+
+This takes you to the game screen.
+You will be able to see and chat with other users if they are in the same room
+as you. You will be able to travel between rooms by clicking on the orange
+arrows.
+From here, you can click on "Exit Game" to return to the user page, or "Log Out"
+to return to the index page.
+
+
+As an Admin:
+Start by opening the file index/index.html in your browser.
+Log in with username "admin" and password "admin".
+//TODO explain admin functionality

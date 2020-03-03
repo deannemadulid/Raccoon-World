@@ -28,11 +28,10 @@ body {
     float: right;
 }
 
-#user_table {
+.tables {
     width: 50%;
     margin: auto;
     margin-top: 15px;
-    margin-bottom: 15px;
     border-collapse: collapse;
     border: 1px solid black;
 }
@@ -75,12 +74,28 @@ input[type=text], select, textarea {
     background-color: #9da3a5;
     width: 70px;
     display: inline-block;
+    cursor: pointer
+}
+
+#search_button:hover {
+    background-color: lightgrey;
+}
+
+#clear_button {
+    background-color: #9da3a5;
+    width: 80px;
+    display: inline-block;
+    cursor: pointer;
+    display: none;
+}
+
+#clear_button:hover {
+    background-color: lightgrey;
 }
 
 #add_user_button {
     background-color: lightgreen;
     float: right;
-    margin-right: 7px;
 }
 
 #add_user_button:hover {
@@ -97,6 +112,7 @@ input[type=text], select, textarea {
     margin: 0 auto;
     display: block;
     border-radius: 5px;
+    margin-top: 15px;
 }
 
 #go_back:hover {
@@ -113,5 +129,10 @@ input[type=text], select, textarea {
 
 .modify_user_button:hover {
     background-color: lightgrey;
+}
+
+#no_results {
+    text-align: center;
+    display: none;
 }
 
