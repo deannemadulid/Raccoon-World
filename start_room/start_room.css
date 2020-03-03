@@ -55,18 +55,28 @@ body {
     overflow-y: scroll;
     overflow-wrap: break-word;
 }
-.chatMsg {
+.chatMsg, .welcomeMsg {
     margin-bottom: 5px;
     list-style-type: none;
 }
+
+.welcomeMsg {
+    color:rgb(119, 119, 119)
+}
+
 #newMsg {
     width: 75%;
 }
 #newMsgSubmit {
     width: 20%;
-    background-color: rgb(173, 230, 201);
+    background-color: rgb(196, 233, 214);
     color: rgb(23, 5, 102);
     border-radius: 8px;
+}
+
+#newMsgSubmit:hover {
+    cursor: pointer;
+    background-color: rgb(173, 230, 201);
 }
 
 #gameView {
