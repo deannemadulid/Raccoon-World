@@ -6,32 +6,41 @@ const arrowsList = worldWindow.getElementsByClassName("arrow");
 
 class Coordinates {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        this.x = x + "px";
+        this.y = y + "px";
     }
 }
 
-class Arrow {
+class Arrow extends Coordinates {
     constructor(x, y, img_path) {
-        this.x = x;
-        this.y = y;
-        this.img_path = "../images/arrows/arrow" + img_path + ".png"
+        super(x, y);
+        this.img_path = "../images/arrows/arrow" + img_path + ".png";
     }
 }
 
 const raccoon_positions = [];
-raccoon_positions.push(new Coordinates("150px", "100px"));
-raccoon_positions.push(new Coordinates("360px", "100px"));
-raccoon_positions.push(new Coordinates("225px", "200px"));
-
 const arrows = [];
-arrows.push(new Arrow("30px", "10px", "TopLeft"));
-arrows.push(new Arrow("545px", "170px", "Right"));
-arrows.push(new Arrow("35px", "335px", "BottomLeft"));
 
+function loadRoom1() {
+    worldWindow.querySelector(".backdrop").src = "../images/temp_room.png";
+
+    raccoon_positions.length = 0;
+    raccoon_positions.push(new Coordinates(150, 100));
+    raccoon_positions.push(new Coordinates(360, 100));
+    raccoon_positions.push(new Coordinates(225, 200));
+
+    arrows.length = 0;
+    arrows.push(new Arrow(30, 10, "TopLeft"));
+    arrows.push(new Arrow(545, 170, "Right"));
+    arrows.push(new Arrow(35, 335, "BottomLeft"));
+
+    placeRaccoons();
+    placeArrows();
+
+}
 
 function placeRaccoons() {
-    for (let i = 0; i < raccoonsList.length; i++) {
+    for (let i = 0; i < raccoonsList.length && i < raccoon_positions.length; i++) {
         raccoonsList[i].style.left = raccoon_positions[i].x;
         raccoonsList[i].style.top = raccoon_positions[i].y;
         raccoonsList[i].style.visibility = "visible"
@@ -39,7 +48,7 @@ function placeRaccoons() {
 }
 
 function placeArrows() {
-    for (let i = 0; i < arrowsList.length; i++) {
+    for (let i = 0; i < arrows.length; i++) {
         arrowsList[i].style.left = arrows[i].x;
         arrowsList[i].style.top = arrows[i].y;
         arrowsList[i].querySelector(".arrowImg").src = arrows[i].img_path;
@@ -47,5 +56,4 @@ function placeArrows() {
     }
 }
 
-placeRaccoons();
-placeArrows();
+loadRoom1();
