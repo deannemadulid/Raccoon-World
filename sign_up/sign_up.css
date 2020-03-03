@@ -25,7 +25,7 @@ body {
 }
 
 h2 {
-    margin-left: 20%;
+    margin-left: 22%;
 }
 
 .raccoons {
@@ -33,7 +33,7 @@ h2 {
     margin-left: 10%;
 }
 
-#raccoon {
+.avatar {
     max-width: 100px;
     max-height: 200px;
     display: inline-block;
@@ -42,7 +42,14 @@ h2 {
     opacity: 0.7;
 }
 
-#raccoon:hover, #raccoon:focus {
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.avatar:hover, [type=radio]:checked + img {
     max-width: 135px;
     max-height: 235px;
     margin-bottom: 5px;
@@ -50,7 +57,7 @@ h2 {
     cursor: pointer;
 }
 
-#raccoon:focus {
+[type=radio]:checked + img {
     opacity: 1;
 }
 

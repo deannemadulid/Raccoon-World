@@ -14,16 +14,36 @@
 
     <h1>User</h1>
     <h2>Select An Avatar</h2>
-    <div class="raccoons">
-        <img id="raccoon" src="../images/raccoonPink.png" onclick="location.href = '../user/user_page.html';">
-        <img id="raccoon" src="../images/raccoonBrown.png" onclick="location.href = '../user/user_page.html';">
-        <img id="raccoon" src="../images/raccoonGreen.png" onclick="location.href = '../user/user_page.html';">
-        <img id="raccoon" src="../images/raccoonBlue.png" onclick="location.href = '../user/user_page.html';">
-        <img id="raccoon" src="../images/raccoonRed.png" onclick="location.href = '../user/user_page.html';">
-        <img id="raccoon" src="../images/raccoonYellow.png" onclick="location.href = '../user/user_page.html';">
+    <div id="raccoons">
+        <label>
+            <input type="radio" id="pink" name="avatar" value="pink">
+            <img class="avatar" id="rac_pink" src="../images/raccoonPink.png">
+        </label>
+        <label>
+            <input type="radio" id="brown" name="avatar" value="brown">
+            <img class="avatar" id="rac_brown" src="../images/raccoonBrown.png">
+        </label>
+        <label>
+            <input type="radio" id="green" name="avatar" value="green">
+            <img class="avatar" id="rac_green" src="../images/raccoonGreen.png">
+        </label>
+        <label>
+            <input type="radio" id="blue" name="avatar" value="blue" checked>
+            <img class="avatar" id="rac_blue" src="../images/raccoonBlue.png">
+        </label>
+        <label>
+            <input type="radio" id="red" name="avatar" value="red">
+            <img class="avatar" id="rac_red" src="../images/raccoonRed.png">
+        </label>
+        <label>
+            <input type="radio" id="yellow" name="avatar" value="yellow">
+            <img class="avatar" id="rac_yellow" src="../images/raccoonYellow.png">
+        </label>
+
     </div>
 
-    <button onclick="location.href = '../user/user_page.html';" id="myButton">Cancel</button>
+    <button onclick="location.href = '../user/user_page.html';" id="selectAvatar">Select Avatar</button>
+    <button onclick="location.href = '../user/user_page.html';" id="cancel">Cancel</button>
 
- </body>
+</body>
 </html>

@@ -24,6 +24,8 @@ function createAccount(e) {
         location.href = "sign_up.html"
         log("Passwords do not match. Try again.")
     }
-    
+
+    // Store data
+    // Switch back to first page
     else {location.href = "../index/index.html"}
 }

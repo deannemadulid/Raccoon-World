@@ -19,11 +19,13 @@ function changePassword(e) {
     }
     // Check if passwords match
     else if (pass == rePass) {
+        // Store new password
         location.href = "../user/user_page.html"
         log("Your password has been changed.")
     }
 
     // Passwords do not match
+    // Refresh page to clear entered information
     else {
         location.href = "password_change.html"
         log("Passwords do not match.")
