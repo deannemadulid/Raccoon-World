@@ -16,7 +16,7 @@ Click on "Enter Game".
 This takes you to the game screen.
 You will be able to see and chat with other users if they are in the same room
 as you. You will be able to travel between rooms by clicking on the orange arrows.
-You can move around the room by using the arrow keys.
+You can move around the room by clicking anywhere within the game window.
 From here, you can click on "Exit Game" to return to the user page, or "Log Out"
 to return to the index page.
 
@@ -34,7 +34,7 @@ You can click on "Enter Game" or "View/Modify Users".
 Clicking on "Enter Game" takes you to the game screen.
 You will be able to see and chat with other users if they are in the same room
 as you. You will be able to travel between rooms by clicking on the orange arrows.
-You can move around the room by using the arrow keys.
+You can move around the room by clicking anywhere within the game window.
 From here, you can click on "Exit Game" to return to the admin page, or "Log Out"
 to return to the index page.
 
