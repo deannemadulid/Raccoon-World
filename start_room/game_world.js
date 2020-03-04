@@ -4,6 +4,8 @@ const worldWindow = document.querySelector('#worldView')
 const raccoonsList = worldWindow.getElementsByClassName("raccoon");
 const arrowsList = worldWindow.getElementsByClassName("arrow");
 
+worldWindow.addEventListener("click", moveRaccoon);
+
 class Coordinates {
     constructor(x, y) {
         this.x = x + "px";
@@ -53,6 +55,17 @@ function placeArrows() {
         arrowsList[i].style.top = arrows[i].y;
         arrowsList[i].querySelector(".arrowImg").src = arrows[i].img_path;
         arrowsList[i].style.visibility = "visible"
+    }
+}
+
+function moveRaccoon(e) {
+    if (e.target.className != "arrowImg") {
+        const movingRaccoon = raccoonsList[0];
+        const worldRect = worldWindow.getBoundingClientRect();
+        const newX = e.clientX - worldRect.left - (movingRaccoon.offsetWidth / 2);
+        const newY = e.clientY - worldRect.top - (movingRaccoon.offsetHeight / 3);
+        movingRaccoon.style.left = newX + "px";
+        movingRaccoon.style.top = newY + "px";
     }
 }
 
