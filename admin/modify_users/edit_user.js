@@ -6,12 +6,14 @@ const save_changes = document.querySelector('#save_changes')
 const edit_username = document.querySelector('#edit_username')
 const edit_password = document.querySelector('#edit_password')
 const edit_avatar = document.querySelector('#edit_avatar')
+const delete_user = document.querySelector('#delete_user')
 
 cancel.addEventListener('click', goBack)
 save_changes.addEventListener('click', saveChanges)
 edit_username.addEventListener('click', editUserName)
 edit_password.addEventListener('click', editPassword)
 edit_avatar.addEventListener('click', editAvatar)
+delete_user.addEventListener('click', deleteUser)
 
 
 function goBack(e) {
@@ -72,4 +74,14 @@ function editAvatar(e) {
 
     raccoons.style.display = "block"
     log(raccoons)
+}
+
+function deleteUser(e) {
+    e.preventDefault();
+
+    const user = document.querySelector('#user')
+    if (confirm(`Are you sure you want to delete ${user}`)) {
+        // Delete user
+        location.href = "users_list.html"
+    }
 }
