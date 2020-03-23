@@ -1,0 +1,27 @@
+{
+  "name": "team53",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc309-winter-2020/team53.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csc309-winter-2020/team53/issues"
+  },
+  "homepage": "https://github.com/csc309-winter-2020/team53#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "heroku": "^7.39.1",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.5"
+  }
+}

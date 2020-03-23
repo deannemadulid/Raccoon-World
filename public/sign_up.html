@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="styles/sign_up.css">
+</head>
+<body>
+    <div class="nav">
+        <a href="about.html">About</a>
+        <a href="help.html">Help</a>
+    </div>
+
+    <h2>Pick An Avatar</h2>
+
+    <div class="raccoons">
+        <div id="top">
+            <label>
+                <input type="radio" id="pink" name="avatar" value="pink">
+                <img class="avatar" id="rac_pink" src="images/raccoonPink.png">
+            </label>
+            <label>
+                <input type="radio" id="brown" name="avatar" value="brown">
+                <img class="avatar" id="rac_brown" src="images/raccoonBrown.png">
+            </label>
+            <label>
+                <input type="radio" id="green" name="avatar" value="green">
+                <img class="avatar" id="rac_green" src="images/raccoonGreen.png">
+            </label>
+        </div>
+        <div id="bot">
+            <label>
+                <input type="radio" id="blue" name="avatar" value="blue" checked>
+                <img class="avatar" id="rac_blue" src="images/raccoonBlue.png">
+            </label>
+            <label>
+                <input type="radio" id="red" name="avatar" value="red">
+                <img class="avatar" id="rac_red" src="images/raccoonRed.png">
+            </label>
+            <label>
+                <input type="radio" id="yellow" name="avatar" value="yellow">
+                <img class="avatar" id="rac_yellow" src="images/raccoonYellow.png">
+            </label>
+        </div>
+    </div>
+    
+    <div class="box">
+        <form id='createAccount'>
+            <p>Username</p>
+            <input id="uName" type="text" name="username" placeholder="Username">
+            <p>Password</p>
+            <input id="uPass" type="text" name="password" placeholder="Password">
+            <p>Re-enter Password</p>
+            <input id="uRePass" type="text" name="enterpassword" placeholder="Re-enter Password">
+            <input type="submit" value="Create Account">
+
+        </form>
+
+        <a class="back" href="index.html">Back</a>
+
+    </div>  
+
+    <script type="text/javascript" src="js/sign_up.js"></script>
+</body>
+</html>

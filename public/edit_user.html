@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <title>Edit user</title>
+    <link rel="stylesheet" type="text/css" href="styles/edit_user.css">
+ </head>
+ <body> 
+    <div class="nav">
+        <a href="about.html">About</a>
+        <a href="help.html">Help</a>
+        <a class="logout" href="index.html">Log Out</a>
+    </div>
+
+    <h1>Edit user</h1>
+    <h2 id="user">Username</h2>
+
+    <form id="edit_user_form">
+        <div class="field">
+            <label class="field_name">Avatar:</label>
+            <div><img id="curr_avatar" src="images/raccoonBlue.png"></div>
+            <button class="edit_button" id="edit_avatar">Edit avatar</button>
+            
+            <div id="raccoons">
+                <label>
+                    <input type="radio" id="pink" name="avatar" value="pink">
+                    <img class="avatar" id="rac_pink" src="images/raccoonPink.png">
+                </label>
+                <label>
+                    <input type="radio" id="brown" name="avatar" value="brown">
+                    <img class="avatar" id="rac_brown" src="images/raccoonBrown.png">
+                </label>
+                <label>
+                    <input type="radio" id="green" name="avatar" value="green">
+                    <img class="avatar" id="rac_green" src="images/raccoonGreen.png">
+                </label>
+                <label>
+                    <input type="radio" id="blue" name="avatar" value="blue" checked>
+                    <img class="avatar" id="rac_blue" src="images/raccoonBlue.png">
+                </label>
+                <label>
+                    <input type="radio" id="red" name="avatar" value="red">
+                    <img class="avatar" id="rac_red" src="images/raccoonRed.png">
+                </label>
+                <label>
+                    <input type="radio" id="yellow" name="avatar" value="yellow">
+                    <img class="avatar" id="rac_yellow" src="images/raccoonYellow.png">
+                </label>
+
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="new_username" class="field_name">Username:</label>
+            <input id="new_username" class="field_input" type="text" value="username" disabled>
+            <button class="edit_button" id="edit_username">Edit</button>
+        </div>
+        <div class="field">
+            <label for="new_password"class="field_name">Password:</label>
+            <input id="new_password" class="field_input" type="text" value="password" disabled>
+            <button class="edit_button" id="edit_password">Edit</button>
+        </div>
+
+
+        <div id="form_buttons">
+            <button id="delete_user">Delete User</button>
+            <button id="save_changes">Save changes</button>
+            <button id="cancel">Cancel</button>
+        </div>
+    </form>
+
+    <script type="text/javascript" src="js/edit_user.js"></script>
+</body>
+</html>

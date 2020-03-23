@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ 	<meta charset="utf-8">
+    <title>User</title>
+    <link rel="stylesheet" type="text/css" href="styles/change_avatar.css">
+ </head>
+ <body>
+    <div class="nav">
+        <a href="about.html">About</a>
+        <a href="help.html">Help</a>
+        <a class="logout" href="index.html">Log Out</a>
+    </div>
+
+    <h1>User</h1>
+    <h2>Select An Avatar</h2>
+    <div id="raccoons">
+        <label>
+            <input type="radio" id="pink" name="avatar" value="pink">
+            <img class="avatar" id="rac_pink" src="images/raccoonPink.png">
+        </label>
+        <label>
+            <input type="radio" id="brown" name="avatar" value="brown">
+            <img class="avatar" id="rac_brown" src="images/raccoonBrown.png">
+        </label>
+        <label>
+            <input type="radio" id="green" name="avatar" value="green">
+            <img class="avatar" id="rac_green" src="images/raccoonGreen.png">
+        </label>
+        <label>
+            <input type="radio" id="blue" name="avatar" value="blue" checked>
+            <img class="avatar" id="rac_blue" src="images/raccoonBlue.png">
+        </label>
+        <label>
+            <input type="radio" id="red" name="avatar" value="red">
+            <img class="avatar" id="rac_red" src="images/raccoonRed.png">
+        </label>
+        <label>
+            <input type="radio" id="yellow" name="avatar" value="yellow">
+            <img class="avatar" id="rac_yellow" src="images/raccoonYellow.png">
+        </label>
+
+    </div>
+
+    <button onclick="location.href = 'user_page.html';" id="selectAvatar">Select Avatar</button>
+    <button onclick="location.href = 'user_page.html';" id="cancel">Cancel</button>
+
+</body>
+</html>
