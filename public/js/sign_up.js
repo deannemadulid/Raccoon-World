@@ -37,7 +37,7 @@ function createAccount(e) {
     request.open('POST', url)
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-    const data = JSON.stringify({"username":username,"password":password, "avatar":checkedAvatar})
+    const data = JSON.stringify({"username":username,"password":password, "avatar":checkedAvatar[0].value})
     request.send(data)
     // Switch back to first page
     location.href = "index.html"
