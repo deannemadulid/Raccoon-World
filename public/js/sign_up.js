@@ -19,7 +19,7 @@ function createAccount(e) {
         return avatar.checked
     })
 
-    // Check that no input is blank
+    // Check that no input is blank 
     if (password == '' || username == '') {
         log("Please enter a valid username and password")
         return
@@ -39,8 +39,6 @@ function createAccount(e) {
 
     const data = JSON.stringify({"username":username,"password":password, "avatar":checkedAvatar})
     request.send(data)
-    
-    sessionStorage.setItem('userName', username);
     // Switch back to first page
-    location.href = "user.html"
+    location.href = "index.html"
 }

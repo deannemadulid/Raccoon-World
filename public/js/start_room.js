@@ -26,8 +26,6 @@ chat.addEventListener('click', addMsgByClick)
 // Event listener when pressing Enter
 document.querySelector('#newMsg').addEventListener('keypress', addMsgByEnter)
 
-const uName = sessionStorage.getItem('userName');
-
 function addMsgByClick(e) {
     e.preventDefault();
 
@@ -56,20 +54,20 @@ function addMessage() {
     // Create new message in chatlog
     const newMsgBody = document.createElement('li')
     newMsgBody.classList.add('chatMsg')
-    newMsgBody.appendChild(document.createTextNode(uName + : " + msgText))
+    newMsgBody.appendChild(document.createTextNode("[User]: " + msgText))
 
     chatlog.appendChild(newMsgBody)
 
     // Clear message in input line
     document.querySelector('#newMsg').value = ""
 
-    log(new Date() + ', ' + uName + ': ' + msgText) // To add to global chatlog
+    log(new Date() + ', ' + '[User]' + ': ' + msgText) // To add to global chatlog
 
     const request = new XMLHttpRequest()
     const url = '/chatlog'
     request.open('POST', url)
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-    const data = JSON.stringify({"time":new Date(),"user":uName, "msg":msgText})
+    const data = JSON.stringify({"time":new Date(),"user":"[User]", "msg":msgText})
     request.send(data)
 }

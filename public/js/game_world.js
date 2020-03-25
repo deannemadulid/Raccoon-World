@@ -39,7 +39,7 @@ function loadRoom1() {
     raccoon_positions.push(new Coordinates(360, 100));
     raccoon_positions.push(new Coordinates(225, 200));
 
-    raccoons.push(new Raccoon("Green", uName));
+    raccoons.push(new Raccoon("Green", "User"));
     raccoons.push(new Raccoon("Pink", "George"));
     raccoons.push(new Raccoon("Brown", "Admin"));
 
@@ -60,7 +60,7 @@ function loadRoom2() {
     raccoon_positions.push(new Coordinates(360, 100));
     raccoon_positions.push(new Coordinates(225, 200));
 
-    raccoons.push(new Raccoon("Green", uName));
+    raccoons.push(new Raccoon("Green", "User"));
 
     arrows.push(new Arrow(10, 170, "Left", loadRoom1));
 
@@ -77,7 +77,7 @@ function loadRoom3() {
     raccoon_positions.push(new Coordinates(360, 100));
     raccoon_positions.push(new Coordinates(225, 200));
 
-    raccoons.push(new Raccoon("Green", uName));
+    raccoons.push(new Raccoon("Green", "User"));
 
     arrows.push(new Arrow(515, 15, "TopRight", loadRoom1));
 
@@ -94,7 +94,7 @@ function loadRoom4() {
     raccoon_positions.push(new Coordinates(360, 100));
     raccoon_positions.push(new Coordinates(225, 200));
 
-    raccoons.push(new Raccoon("Green", uName));
+    raccoons.push(new Raccoon("Green", "User"));
     raccoons.push(new Raccoon("Red", "Mary"));
 
     arrows.push(new Arrow(515, 330, "BottomRight", loadRoom1));
