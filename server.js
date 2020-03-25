@@ -38,7 +38,7 @@ app.post('/signup', (req, res) => {
 		username: req.body.username,
 		password: req.body.password,
 		rePassword: req.body.rePassword,
-		avatar: req.body.color
+		avatar: req.body.avatar
 	})
 	const userExists = User.findOne({username: req.body.username})
 
