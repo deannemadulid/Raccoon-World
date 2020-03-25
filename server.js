@@ -37,7 +37,6 @@ app.post('/signup', (req, res) => {
 	const user = new User ({
 		username: req.body.username,
 		password: req.body.password,
-		rePassword: req.body.rePassword,
 		avatar: req.body.avatar
 	})
 	User.findOne({username: req.body.username})

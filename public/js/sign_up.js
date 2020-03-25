@@ -13,7 +13,11 @@ function createAccount(e) {
     const username = document.querySelector('#uName').value
     const password = document.querySelector('#uPass').value
     const enterPassword = document.querySelector('#uRePass').value
-    const avatar = document.getElementsByClassName("avatar").checked; 
+    const avatars = document.getElementsByName("avatar")
+    const avatarsArr = Array.prototype.slice.call(avatars);
+    const checkedAvatar = avatarsArr.filter(function(avatar){
+        return avatar.checked
+    })
 
     // Check that no input is blank 
     if (password == '' || username == '') {
@@ -33,7 +37,7 @@ function createAccount(e) {
     request.open('POST', url)
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-    const data = JSON.stringify({"username":username,"password":password, "rePassword":enterPassword, "avatar":avatar})
+    const data = JSON.stringify({"username":username,"password":password, "avatar":checkedAvatar})
     request.send(data)
     // Switch back to first page
     location.href = "index.html"
