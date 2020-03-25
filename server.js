@@ -11,6 +11,7 @@ const app = express();
 const { mongoose } = require('./db/mongoose')
 mongoose.set('useFindAndModify', false); // for some deprecation issues
 const { Chat } = require('./models/chatlog')
+const { User } = require('./models/users')
 
 // to validate object IDs
 const { ObjectID } = require('mongodb')
@@ -30,6 +31,53 @@ app.get('/', (req, res) => {
 })
 
 /*** Session handling **************************************/
+
+// Add new user to the user database
+app.post('/signup', (req, res) => {
+	const user = new User ({
+		username: req.body.username,
+		password: req.body.password,
+		rePassword: req.body.rePassword,
+		avatar: req.body.color
+	})
+	const userExists = User.findOne({username: req.body.username})
+
+	if (userExists) {
+		return res.status(400).send("User already exists.")
+	}
+
+	else {
+		user.save().then((result) => {
+			res.send(result)
+		}, (error) => {
+			res.status(400).send(error)
+		})
+	}
+})
+
+// Route for getting all users
+app.get('/signup', (req, res) => {
+	User.find().then((user) => {
+		res.send(user)
+	}, (error) => {
+		res.status(500).send(error)
+	})
+})
+
+app.post('/login', (req, res) => {
+	const username = req.body.username
+	const password = req.body.password
+
+	const userExists = User.findOne({username: req.body.username})
+
+	if (!userExists) {
+		return res.status(400).send("Invalid username.")
+	}
+
+	else if (userExists.password != password) {
+		return res.status(400).send("Invalid password.")
+	}
+})
 
 // Add new chat to the chatlog database
 app.post('/chatlog', (req, res) => {

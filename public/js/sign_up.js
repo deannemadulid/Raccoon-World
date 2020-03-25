@@ -13,19 +13,28 @@ function createAccount(e) {
     const username = document.querySelector('#uName').value
     const password = document.querySelector('#uPass').value
     const enterPassword = document.querySelector('#uRePass').value
+    const avatar = document.getElementsByClassName("avatar").checked; 
 
     // Check that no input is blank 
     if (password == '' || username == '') {
         log("Please enter a valid username and password")
+        return
     }
 
     // Make sure passwords match
     else if (password != enterPassword) {
-        location.href = "sign_up.html"
         log("Passwords do not match. Try again.")
+        return
     }
 
     // Store data
+    const request = new XMLHttpRequest()
+    const url = '/signup'
+    request.open('POST', url)
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    const data = JSON.stringify({"username":username,"password":password, "rePassword":enterPassword, "avatar":avatar})
+    request.send(data)
     // Switch back to first page
-    else {location.href = "index.html"}
+    //location.href = "index.html"
 }
