@@ -60,4 +60,14 @@ function addMessage() {
 
     // Clear message in input line
     document.querySelector('#newMsg').value = ""
+
+    log(new Date() + ', ' + '[User]' + ': ' + msgText) // To add to global chatlog
+
+    const request = new XMLHttpRequest()
+    const url = '/chatlog'
+    request.open('POST', url)
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    const data = JSON.stringify({"time":new Date(),"user":"[User]", "msg":msgText})
+    request.send(data)
 }
