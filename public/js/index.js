@@ -22,10 +22,12 @@ function signIn(e) {
     else if (username == "admin" & password == "admin") {
         location.href = "admin.html"
     }
-    
+
     // Input not valid
     else {
         location.href = "index.html"
         log("Username or password invalid. Try again.")
     }
+
+    sessionStorage.setItem('userName', username);
 }
