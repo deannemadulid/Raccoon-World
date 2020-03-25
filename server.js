@@ -17,7 +17,7 @@ const { User } = require('./models/users')
 const { ObjectID } = require('mongodb')
 
 // body-parser: middleware for parsing HTTP JSON body into a usable object
-const bodyParser = require('body-parser') 
+const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 // express-session for managing user sessions
@@ -41,14 +41,13 @@ app.post('/signup', (req, res) => {
 		avatar: req.body.avatar
 	})
 	const userExists = User.findOne({username: req.body.username})
-
 	if (userExists) {
 		return res.status(400).send("User already exists.")
 	}
 
 	else {
-		user.save().then((result) => {
-			res.send(result)
+		user.save().then((user) => {
+			res.send(user)
 		}, (error) => {
 			res.status(400).send(error)
 		})
@@ -123,4 +122,4 @@ app.delete('/chatlog', (req, res) => {
 const port = process.env.PORT || 5000
 app.listen(port, () => {
 	log(`Listening on port ${port}...`)
-}) 
+})
