@@ -13,21 +13,13 @@ function signIn(e) {
     const username = document.querySelector('#uName').value
     const password = document.querySelector('#uPass').value
 
-    // Check if user
-    if (username == "user" & password == "user") {
-        location.href = "user.html"
-    }
+    const request = new XMLHttpRequest()
+    const url = '/login'
+    request.open('POST', url)
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-    // Check if admin
-    else if (username == "admin" & password == "admin") {
-        location.href = "admin.html"
-    }
-
-    // Input not valid
-    else {
-        location.href = "index.html"
-        log("Username or password invalid. Try again.")
-    }
+    const data = JSON.stringify({"username":username,"password":password})
+    request.send(data)
 
     sessionStorage.setItem('userName', username);
 }
