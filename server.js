@@ -49,6 +49,7 @@ app.post('/signup', (req, res) => {
 		user.save().then((user) => {
 			res.send(user)
 		}, (error) => {
+			log("user save error")
 			res.status(400).send(error)
 		})
 	}
