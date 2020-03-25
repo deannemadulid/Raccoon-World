@@ -36,5 +36,5 @@ function createAccount(e) {
     const data = JSON.stringify({"username":username,"password":password, "rePassword":enterPassword, "avatar":avatar})
     request.send(data)
     // Switch back to first page
-    //location.href = "index.html"
+    location.href = "index.html"
 }

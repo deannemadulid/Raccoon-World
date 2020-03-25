@@ -40,19 +40,20 @@ app.post('/signup', (req, res) => {
 		rePassword: req.body.rePassword,
 		avatar: req.body.avatar
 	})
-	const userExists = User.findOne({username: req.body.username})
-
-	if (userExists) {
-		return res.status(400).send("User already exists.")
-	}
-
-	else {
-		user.save().then((result) => {
-			res.send(result)
-		}, (error) => {
-			res.status(400).send(error)
-		})
-	}
+	User.findOne({username: req.body.username})
+	.then((userExists) => {
+		if (userExists) {
+			res.status(400).send("User already exists.")
+		} else {
+			user.save().then((result) => {
+					res.send(result)
+				}, (error) => {
+					res.status(400).send(error)
+			})
+		}
+	}, (error) => {
+		res.status(500).send(error)
+	})
 })
 
 // Route for getting all users
