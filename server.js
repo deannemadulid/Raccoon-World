@@ -69,6 +69,7 @@ app.post('/login', (req, res) => {
 
 	User.findOne({username: req.body.username})
 	.then((user) => {
+		log("user:", user)
 		if (password === user.password) {
 			res.sendFile('user.html')
 			return
