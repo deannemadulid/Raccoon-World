@@ -7,6 +7,9 @@ const express = require('express')
 // starting the express server
 const app = express();
 
+// for hashing
+const bcrypt = require('bcrypt.js')
+
 // mongoose and mongo connection
 const { mongoose } = require('./db/mongoose')
 mongoose.set('useFindAndModify', false); // for some deprecation issues
@@ -44,10 +47,15 @@ app.post('/signup', (req, res) => {
 		if (userExists) {
 			res.status(400).send("User already exists.")
 		} else {
-			user.save().then((result) => {
-					res.send(result)
-				}, (error) => {
-					res.status(400).send(error)
+			bcrypt.genSalt(10, (err, salt) => {
+				bcrypt.hash(user.password, salt, (err, hash) => {
+					user.password = hash
+					user.save().then((result) => {
+						res.send(result)
+					}, (error) => {
+						res.status(400).send(error)
+					})
+				})
 			})
 		}
 	}, (error) => {
@@ -56,7 +64,7 @@ app.post('/signup', (req, res) => {
 })
 
 // Route for getting all users
-app.get(['/signup', '/login'], (req, res) => {
+app.get('/signup', (req, res) => {
 	User.find().then((user) => {
 		res.send(user)
 	}, (error) => {
@@ -65,12 +73,22 @@ app.get(['/signup', '/login'], (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-	User.findOne({username: req.body.username, password: req.body.password})
+	User.findOne({username: req.body.username})
 	.then((user) => {
-		res.send(user)
-		return res.sendFile('user.html')
+		if (!user) {
+			res.status(400).send("Invalid username or password.")
+		} else {
+			bcrypt.compare(req.body.password, user.password).then((result) => {
+				if (!result) {
+					res.status(400).send("Invalid username or password.")
+				} else {
+					res.sendFile(path.join(__dirname, '/public/user.html'))
+				}
+			})
+		}
+	}, (error) => {
+		res.status(500).send(error)
 	})
-	res.status(400).send("Invalid username or password.")
 })
 
 // Add new chat to the chatlog database
