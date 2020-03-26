@@ -97,6 +97,22 @@ app.post('/login', (req, res) => {
 	})
 })
 
+// Change user avatar
+app.patch('/signup', (req, res) => {
+	log('Colour change request')
+	User.findOneAndUpdate({username: req.body.username},
+		{$set: {'avatar': req.body.avatar}},)
+	.then((user) => {
+		if (!user) {
+			res.status(400).send("Invalid username.")
+		} else {
+			res.send(user)
+		}
+	}, (error) => {
+		res.status(500).send(error)
+	})
+})
+
 // Add new chat to the chatlog database
 app.post('/chatlog', (req, res) => {
 	const chat = new Chat({
