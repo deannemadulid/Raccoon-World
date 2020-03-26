@@ -53,6 +53,7 @@ app.post('/signup', (req, res) => {
 					user.password = hash
 					user.save().then((result) => {
 						res.send(result)
+						location.href = "user.html"
 					}, (error) => {
 						res.status(400).send(error)
 					})
@@ -84,9 +85,9 @@ app.post('/login', (req, res) => {
 					res.status(400).send("Invalid username or password.")
 				} else {
 					if (req.body.admin === True) {
-						res.redirect('/admin')
+						location.href = "admin.html"
 					} else {
-						res.redirect('/user')
+						location.href = "user.html"
 					}
 				}
 			})
@@ -94,14 +95,6 @@ app.post('/login', (req, res) => {
 	}, (error) => {
 		res.status(500).send(error)
 	})
-})
-
-app.get('/user', (req, res) => {
-	res.render('user.html')
-})
-
-app.get('/admin', (req, res) => {
-	res.render('admin.html')
 })
 
 // Add new chat to the chatlog database

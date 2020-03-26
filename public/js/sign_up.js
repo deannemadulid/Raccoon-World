@@ -42,5 +42,4 @@ function createAccount(e) {
     sessionStorage.setItem('userName', username);
     sessionStorage.setItem('userColour', checkedAvatar[0].value.charAt(0).toUpperCase() +  checkedAvatar[0].value.slice(1));
     // Switch back to first page
-    location.href = "user.html"
 }
