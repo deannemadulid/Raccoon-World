@@ -37,7 +37,7 @@ function createAccount(e) {
     request.open('POST', url)
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-    const data = JSON.stringify({"username":username,"password":password, "avatar":checkedAvatar[0].value})
+    const data = JSON.stringify({"username":username,"password":password, "avatar":checkedAvatar[0].value, "admin":false})
     request.send(data)
     sessionStorage.setItem('userName', username);
     sessionStorage.setItem('userColour', checkedAvatar[0].value.charAt(0).toUpperCase() +  checkedAvatar[0].value.slice(1));

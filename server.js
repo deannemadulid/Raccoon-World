@@ -83,7 +83,11 @@ app.post('/login', (req, res) => {
 				if (!result) {
 					res.status(400).send("Invalid username or password.")
 				} else {
-					res.redirect('/user')
+					if (req.body.admin === True) {
+						res.redirect('/admin')
+					} else {
+						res.redirect('/user')
+					}
 				}
 			})
 		}
@@ -94,6 +98,10 @@ app.post('/login', (req, res) => {
 
 app.get('/user', (req, res) => {
 	res.render('/public/user.html')
+})
+
+app.get('/admin', (req, res) => {
+	res.render('/public/admin.html')
 })
 
 // Add new chat to the chatlog database
