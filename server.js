@@ -20,7 +20,7 @@ const { User } = require('./models/users')
 const { ObjectID } = require('mongodb')
 
 // body-parser: middleware for parsing HTTP JSON body into a usable object
-const bodyParser = require('body-parser') 
+const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 // express-session for managing user sessions
@@ -132,11 +132,45 @@ app.delete('/chatlog', (req, res) => {
 
 })
 
+//Add onlineUser check-in
+app.post('/onlineUsers', (req, res) => {
+	const onlineUser = new OnlineUser({
+		time: req.body.time,
+		username: req.body.username,
+		avatar: req.body.avatar,
+		room: req.body.room
+	})
 
+	onlineUser.save().then((onlineUser) => {
+		res.send(onlineUser)
+	}, (error) => {
+		res.status(400).send(error)
+	})
+})
+
+// Get all onlineUsers
+app.get('/onlineUsers', (req, res) => {
+	OnlineUser.find().then((onlineUsers) => {
+		res.send({ onlineUsers })
+	}, (error) => {
+		res.status(500).send(error)
+	})
+})
+
+/// a DELETE route to remove user's previous check-in
+app.delete('/onlineUsers', (req, res) => {
+
+	// Delete a student by their id
+	OnlineUser.deleteOne({username: req.body.username}).then((onlineUser) => {
+		res.send(onlineUser)
+	}).catch((error) => {
+		res.status(500).send() // server error, could not delete.
+	})
+})
 
 /*************************************************/
 // Express server listening...
 const port = process.env.PORT || 5000
 app.listen(port, () => {
 	log(`Listening on port ${port}...`)
-}) 
+})
