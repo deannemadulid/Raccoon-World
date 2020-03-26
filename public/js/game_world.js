@@ -158,11 +158,10 @@ function checkRaccoonPresence() {
             // return a promise that resolves with the JSON body
            return res.json()
        } else {
-            alert('Could not get students')
+            alert('Could not get raccoons')
        }
     })
     .then((json) => {  // the resolved promise with the JSON body
-        let i = 1;
         clearRaccoons();
         json.onlineUsers.map((s) => {
             if (s.room == currentRoom && ((new Date()) - new Date(s.time)) <= GAME_REFRESH_RATE && s.username != raccoons[0].name) {

@@ -117,7 +117,7 @@ app.post('/chatlog', (req, res) => {
 app.get('/chatlog', (req, res) => {
 	Chat.find()
 	.then((chats) => {
-		res.send(chats)
+		res.send({ chats })
 	}, (error) => {
 		res.status(500).send(error)
 	})
