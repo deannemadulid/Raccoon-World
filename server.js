@@ -82,13 +82,17 @@ app.post('/login', (req, res) => {
 				if (!result) {
 					res.status(400).send("Invalid username or password.")
 				} else {
-					res.sendFile(path.join(__dirname, '/public/user.html'))
+					res.redirect('/user')
 				}
 			})
 		}
 	}, (error) => {
 		res.status(500).send(error)
 	})
+})
+
+app.get('/user', (req, res) => {
+	res.render(path.join(__dirname, '/public/user.html'))
 })
 
 // Add new chat to the chatlog database
