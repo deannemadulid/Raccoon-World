@@ -17,8 +17,7 @@ function signIn(e) {
     const url = '/login'
     request.open('POST', url)
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    log("username:", username)
-    log("password:", password)
+
     const data = JSON.stringify({"username":username,"password":password})
     request.send(data)
 

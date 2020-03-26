@@ -68,12 +68,10 @@ app.post('/login', (req, res) => {
 	log("User:", User)
 	User.findOne({username: req.body.username, password: req.body.password})
 	.then((user) => {
+		log("user:", user)
 		res.send(user)
-		res.sendFile('user.html')
-		return
+		return res.sendFile('user.html')
 	})
-	res.status(400).send("Invalid username or password.")
-
 })
 
 // Add new chat to the chatlog database
