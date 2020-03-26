@@ -67,10 +67,15 @@ app.get(['/signup', '/login'], (req, res) => {
 app.post('/login', (req, res) => {
 	User.findOne({username: req.body.username, password: req.body.password})
 	.then((user) => {
-		res.send(user)
-		return res.sendFile('user.html')
+		if (user) {
+			res.send(user)
+			res.sendFile('user.html')
+		} else {
+			res.status(400).send("Invalid username or password.")
+		}
+	}, (error) => {
+		res.status(500).send(error)
 	})
-	res.status(400).send("Invalid username or password.")
 })
 
 // Add new chat to the chatlog database
