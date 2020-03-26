@@ -97,11 +97,11 @@ app.post('/login', (req, res) => {
 })
 
 app.get('/user', (req, res) => {
-	res.render('/public/user.html')
+	res.render('user.html')
 })
 
 app.get('/admin', (req, res) => {
-	res.render('/public/admin.html')
+	res.render('admin.html')
 })
 
 // Add new chat to the chatlog database
