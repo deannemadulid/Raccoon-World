@@ -41,7 +41,8 @@ app.post('/signup', (req, res) => {
 	const user = new User ({
 		username: req.body.username,
 		password: req.body.password,
-		avatar: req.body.avatar
+		avatar: req.body.avatar,
+		admin: req.body.admin
 	})
 	User.findOne({username: req.body.username})
 	.then((userExists) => {
@@ -84,11 +85,6 @@ app.post('/login', (req, res) => {
 					res.status(400).send("Invalid password.")
 				} else {
 					res.send(user)
-				/*	if (req.body.admin === True) {
-						res.redirect('/admin')
-					} else {
-						res.redirect('/user')
-					}*/
 				}
 			})
 		}
