@@ -56,7 +56,7 @@ app.post('/signup', (req, res) => {
 })
 
 // Route for getting all users
-app.get('/signup', (req, res) => {
+app.get(['/signup', '/login'], (req, res) => {
 	User.find().then((user) => {
 		res.send(user)
 	}, (error) => {
@@ -65,13 +65,12 @@ app.get('/signup', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-	log("User:", User)
 	User.findOne({username: req.body.username, password: req.body.password})
 	.then((user) => {
-		log("user:", user)
 		res.send(user)
 		return res.sendFile('user.html')
 	})
+	res.status(400).send("Invalid username or password.")
 })
 
 // Add new chat to the chatlog database
