@@ -19,7 +19,9 @@ function signIn(e) {
     request.onload = function (e) {
         if (request.readyState === 4) {
             if (request.status === 200) {
+                const body = request.response
                 sessionStorage.setItem('userName', username);
+                sessionStorage.setItem('userColour', body.avatar.charAt(0).toUpperCase() +  body.avatar.slice(1));
                 location.href = "user.html"
             } else {
                 console.error(request.statusText)
