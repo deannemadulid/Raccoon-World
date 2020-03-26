@@ -92,7 +92,7 @@ app.post('/login', (req, res) => {
 })
 
 app.get('/user', (req, res) => {
-	res.render(path.join(__dirname, '/public/user.html'))
+	res.render('/public/user.html')
 })
 
 // Add new chat to the chatlog database
