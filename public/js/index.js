@@ -22,7 +22,11 @@ function signIn(e) {
                 const body = JSON.parse(request.response)
                 sessionStorage.setItem('userName', username);
                 sessionStorage.setItem('userColour', body.avatar.charAt(0).toUpperCase() +  body.avatar.slice(1));
-                location.href = "user.html"
+                if (body.admin === true) {
+                    location.href = "admin.html"
+                } else {
+                    location.href = "user.html"
+                }
             } else {
                 console.error(request.statusText)
             }
