@@ -15,6 +15,7 @@ const { mongoose } = require('./db/mongoose')
 mongoose.set('useFindAndModify', false); // for some deprecation issues
 const { Chat } = require('./models/chatlog')
 const { User } = require('./models/users')
+const { OnlineUser } = require('./models/onlineUsers')
 
 // to validate object IDs
 const { ObjectID } = require('mongodb')
