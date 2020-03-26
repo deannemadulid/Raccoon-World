@@ -8,7 +8,7 @@ const express = require('express')
 const app = express();
 
 // for hashing
-const bcrypt = require('bcrypt.js')
+const bcrypt = require('bcryptjs')
 
 // mongoose and mongo connection
 const { mongoose } = require('./db/mongoose')
