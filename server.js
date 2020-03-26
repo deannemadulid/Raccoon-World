@@ -65,7 +65,7 @@ app.post('/signup', (req, res) => {
 })
 
 // Route for getting all users
-app.get('/signup', (req, res) => {
+app.get('/users', (req, res) => {
 	User.find().then((user) => {
 		res.send(user)
 	}, (error) => {

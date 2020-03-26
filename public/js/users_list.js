@@ -134,3 +134,14 @@ function createRow(i) {
 
 	return new_row
 }
+
+function getUsers() {
+	const request = new XMLHttpRequest();
+	const url = '/users';
+	request.open("GET", url);
+	request.send();
+
+	request.onreadystatechange = (e) => {
+	  console.log(request.responseText)
+	}
+}
