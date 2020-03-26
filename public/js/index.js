@@ -15,7 +15,7 @@ function signIn(e) {
 
     const request = new XMLHttpRequest()
     const url = '/login'
-    request.open('GET', url, true)
+    request.open('POST', url, true)
     request.onload = function (e) {
         if (request.readyState === 4) {
             if (request.status === 200) {
