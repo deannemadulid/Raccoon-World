@@ -65,14 +65,12 @@ app.get('/signup', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-	const password = req.body.password
-
-	User.findOne({username: req.body.username})
+	log("User:", User)
+	User.findOne({username: req.body.username, password: req.body.password})
 	.then((user) => {
-		if (password === user.password) {
-			res.sendFile('user.html')
-			return
-		}
+		res.send(user)
+		res.sendFile('user.html')
+		return
 	})
 	res.status(400).send("Invalid username or password.")
 
