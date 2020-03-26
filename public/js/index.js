@@ -15,11 +15,19 @@ function signIn(e) {
 
     const request = new XMLHttpRequest()
     const url = '/login'
-    request.open('POST', url)
+    request.open('POST', url, true)
+    request.onload = function (e) {
+        if (request.readyState === 4) {
+            if (request.status === 200) {
+                sessionStorage.setItem('userName', username);
+                location.href = "user.html"
+            } else {
+                console.error(request.statusText)
+            }
+        }
+    }
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
     const data = JSON.stringify({"username":username,"password":password})
     request.send(data)
-
-    sessionStorage.setItem('userName', username);
 }

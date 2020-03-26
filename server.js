@@ -73,7 +73,7 @@ app.get('/signup', (req, res) => {
 	})
 })
 
-app.post('/login', (req, res) => {
+app.get('/login', (req, res) => {
 	User.findOne({username: req.body.username})
 	.then((user) => {
 		if (!user) {
@@ -83,25 +83,18 @@ app.post('/login', (req, res) => {
 				if (!result) {
 					res.status(400).send("Invalid username or password.")
 				} else {
-					if (req.body.admin === True) {
+					res.send(user)
+				/*	if (req.body.admin === True) {
 						res.redirect('/admin')
 					} else {
 						res.redirect('/user')
-					}
+					}*/
 				}
 			})
 		}
 	}, (error) => {
 		res.status(500).send(error)
 	})
-})
-
-app.get('/user', (req, res) => {
-	res.redirect('user.html')
-})
-
-app.get('/admin', (req, res) => {
-	res.redirect('admin.html')
 })
 
 // Add new chat to the chatlog database
