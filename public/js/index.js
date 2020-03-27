@@ -3,6 +3,9 @@ const log = console.log;
 
 const logIn = document.querySelector('#signIn')
 
+// Automatically resets current session
+sessionStorage.setItem('userName', '')
+
 // Add submit event listener
 logIn.addEventListener('submit', signIn)
 
@@ -19,10 +22,14 @@ function signIn(e) {
     request.onload = function (e) {
         if (request.readyState === 4) {
             if (request.status === 200) {
-                const body = request.response
+                const body = JSON.parse(request.response)
                 sessionStorage.setItem('userName', username);
                 sessionStorage.setItem('userColour', body.avatar.charAt(0).toUpperCase() +  body.avatar.slice(1));
-                location.href = "user.html"
+                if (body.admin === true) {
+                    location.href = "admin.html"
+                } else {
+                    location.href = "user.html"
+                }
             } else {
                 console.error(request.statusText)
             }

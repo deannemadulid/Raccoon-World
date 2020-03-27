@@ -41,7 +41,8 @@ app.post('/signup', (req, res) => {
 	const user = new User ({
 		username: req.body.username,
 		password: req.body.password,
-		avatar: req.body.avatar
+		avatar: req.body.avatar,
+		admin: req.body.admin
 	})
 	User.findOne({username: req.body.username})
 	.then((userExists) => {
@@ -84,13 +85,24 @@ app.post('/login', (req, res) => {
 					res.status(400).send("Invalid password.")
 				} else {
 					res.send(user)
-				/*	if (req.body.admin === True) {
-						res.redirect('/admin')
-					} else {
-						res.redirect('/user')
-					}*/
 				}
 			})
+		}
+	}, (error) => {
+		res.status(500).send(error)
+	})
+})
+
+// Change user avatar
+app.patch('/signup', (req, res) => {
+	log('Colour change request')
+	User.findOneAndUpdate({username: req.body.username},
+		{$set: {'avatar': req.body.avatar}},)
+	.then((user) => {
+		if (!user) {
+			res.status(400).send("Invalid username.")
+		} else {
+			res.send(user)
 		}
 	}, (error) => {
 		res.status(500).send(error)
