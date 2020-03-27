@@ -8,25 +8,6 @@ const search_button = document.querySelector('#search_button')
 const clear_button = document.querySelector('#clear_button')
 const search_table = document.querySelector('#search_table')
 
-const allUsers = []
-const PINK = "images/raccoonPink.png"
-const GREY = "images/raccoonGrey.png"
-const GREEN = "images/raccoonGreen.png"
-const BLUE = "images/raccoonBlue.png"
-const RED = "images/raccoonRed.png"
-const YELLOW = "images/raccoonYellow.png"
-
-class User {
-	constructor(avatar, username) {
-		this.avatar = avatar;
-		this.username = username;
-	}
-}
-
-// will remove in phase 2
-allUsers.push(new User(BLUE, 'johnsmith'));
-allUsers.push(new User(PINK, 'bob222'));
-
 createUserTable();
 
 cancel.addEventListener('click', addUserPage)
@@ -100,20 +81,37 @@ function clearSearch(e) {
 }
 
 function createUserTable() {
-	for (let i = 0; i < allUsers.length; i++) {
-		const new_row = createRow(i)
-
-		users.appendChild(new_row)
-	}
+	const url = '/users';
+	fetch(url).
+	then((res) => {
+		if (res.status === 200) {
+			return res.json()
+		} else {
+			alert('Could not get users')
+		}
+	})
+	.then((json) => {
+		// Display only non-admin users
+		const allUsers = json.filter((user) => user.admin === false)
+		
+		for (let i = 0; i < allUsers.length; i++) {
+			const new_row = createRow(i, allUsers)
+			users.appendChild(new_row)
+		}
+	}).catch((error) => {
+		log(error)
+	})
 }
 
-function createRow(i) {
+function createRow(i, allUsers) {
 	const new_row = document.createElement("tr")
 		
 	const col1 = document.createElement("th")
 	const avatar = document.createElement("img")
 	avatar.setAttribute("class", "avatar")
-	avatar.setAttribute("src", allUsers[i].avatar)
+	const colour = allUsers[i].avatar
+	const src = "images/raccoon" + colour.charAt(0).toUpperCase() + colour.slice(1) + ".png"
+	avatar.setAttribute("src", src)
 	col1.appendChild(avatar)
 
 	const col2 = document.createElement("th")
@@ -133,15 +131,4 @@ function createRow(i) {
 	new_row.appendChild(col3)
 
 	return new_row
-}
-
-function getUsers() {
-	const request = new XMLHttpRequest();
-	const url = '/users';
-	request.open("GET", url);
-	request.send();
-
-	request.onreadystatechange = (e) => {
-	  console.log(request.responseText)
-	}
 }
