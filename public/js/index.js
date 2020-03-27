@@ -3,6 +3,9 @@ const log = console.log;
 
 const logIn = document.querySelector('#signIn')
 
+// Automatically resets current session
+sessionStorage.setItem('userName', '')
+
 // Add submit event listener
 logIn.addEventListener('submit', signIn)
 
