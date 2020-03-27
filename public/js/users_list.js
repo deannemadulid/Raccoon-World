@@ -36,32 +36,43 @@ function editUserPage(e) {
 function search(e) {
 	e.preventDefault();
 
-	const search_user = document.querySelector('#search_user').value
+	const searchUser = RegExp(document.querySelector('#search_user').value)
+	log(searchUser)
 
-	if (search_table.childNodes.length > 0) {
-		search_table.removeChild(search_table.childNodes[0])
-	}
-
-	users.style.display = "none";
-	clear_button.style.display = "inline-block";
-	
-	for (let i = 0; i < allUsers.length; i++) {
-		if (allUsers[i].username === search_user) {
-
-			const user_row = createRow(i)
-
-			search_table.appendChild(user_row)
-			search_table.display = "table"
-
-			break;
+	const url = '/users';
+	fetch(url).
+	then((res) => {
+		if (res.status === 200) {
+			return res.json()
+		} else {
+			alert('Could not get users')
 		}
-	}
+	})
+	.then((json) => {
+		// Display only non-admin users
+		const searchResults = json.filter((user) => user.admin === false && searchUser.test(user.username))
 
-	if (search_table.childNodes.length === 0) {
-		const no_results = document.querySelector('#no_results')
-		no_results.appendChild(document.createTextNode('No user "' + search_user + '" found'))
-		no_results.style.display = 'block'
-	}
+		if (search_table.childNodes.length > 0) {
+			search_table.removeChild(search_table.childNodes[0])
+		}
+
+		users.style.display = "none";
+		clear_button.style.display = "inline-block";
+		
+		for (let i = 0; i < searchResults.length; i++) {
+			const user_row = createRow(i, searchResults)
+			search_table.appendChild(user_row)
+		}
+		search_table.display = "table"
+
+		if (search_table.childNodes.length === 0) {
+			const no_results = document.querySelector('#no_results')
+			no_results.appendChild(document.createTextNode('No user "' + search_user + '" found'))
+			no_results.style.display = 'block'
+		}
+	}).catch((error) => {
+		log(error)
+	})
 }
 
 function clearSearch(e) {
