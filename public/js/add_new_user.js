@@ -19,13 +19,35 @@ function addUser(e) {
 	const username = document.querySelector('#new_username').value
     const password = document.querySelector('#new_password').value
     const avatar = getAvatar()
+    const data = JSON.stringify({"username":username,"password":password, "avatar":avatar, "admin":false})
+
+    const url = '/signup';
 
     if (username && password) {
-    	// Check if username already exists in system, if it does, don't accept
-    	// Otherwise save username, password, and avatar to the database
-    	location.href = "users_list.html"
+        const request = new Request(url, {
+            method: 'post', 
+            body: data,
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+        });
+        fetch(request)
+        .then(function(res) {
+            if (res.status === 200) {
+                alert(`${username} has been added`)
+                location.href = "users_list.html"
+            } else if (res.status === 400) {
+                alert("User already exists")
+            } else {
+                alert("Could not add user")
+            }
+            log(res)
+        }).catch((error) => {
+            log(error)
+        })
     } else {
-    	log("Enter a username and password")
+        alert("Enter a username and password")
     }
 }
 
@@ -34,7 +56,7 @@ function getAvatar() {
 	
 	for (let i = 0; i < avatars.length; i++) {
 		if (avatars[i].checked) {
-			return avatars[i];
+			return avatars[i].id;
 			break;
 		}
 	}
