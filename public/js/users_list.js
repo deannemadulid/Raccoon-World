@@ -36,8 +36,8 @@ function editUserPage(e) {
 function search(e) {
 	e.preventDefault();
 
-	const searchUser = RegExp(document.querySelector('#search_user').value)
-	log(searchUser)
+	const search_user = document.querySelector('#search_user').value
+	const searchUser = RegExp(search_user)
 
 	const url = '/users';
 	fetch(url).
@@ -49,11 +49,15 @@ function search(e) {
 		}
 	})
 	.then((json) => {
-		// Display only non-admin users
 		const searchResults = json.filter((user) => user.admin === false && searchUser.test(user.username))
 
-		if (search_table.childNodes.length > 0) {
+		while (search_table.childNodes.length > 0) {
 			search_table.removeChild(search_table.childNodes[0])
+		}
+
+		const no_results = document.querySelector('#no_results')
+		if (no_results.childNodes.length > 0) {
+			no_results.removeChild(no_results.childNodes[0])
 		}
 
 		users.style.display = "none";
@@ -66,7 +70,6 @@ function search(e) {
 		search_table.display = "table"
 
 		if (search_table.childNodes.length === 0) {
-			const no_results = document.querySelector('#no_results')
 			no_results.appendChild(document.createTextNode('No user "' + search_user + '" found'))
 			no_results.style.display = 'block'
 		}
@@ -82,11 +85,14 @@ function clearSearch(e) {
 	users.style.display = "table";
 	clear_button.style.display = "none";
 	
-	if (search_table.childNodes.length > 0) {
+	while (search_table.childNodes.length > 0) {
 		search_table.removeChild(search_table.childNodes[0])
 	}
 
 	const no_results = document.querySelector('#no_results')
+	if (no_results.childNodes.length > 0) {
+		no_results.removeChild(no_results.childNodes[0])
+	}
 	no_results.style.display = 'none'
 
 }
