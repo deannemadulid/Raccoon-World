@@ -92,5 +92,5 @@ h1 {
     margin-left: 35%;
     margin-right: 35%;
     margin-top: 10px;
-    visibility: hidden;
+    display: none;
 }

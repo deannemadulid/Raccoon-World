@@ -22,12 +22,15 @@ function createAccount(e) {
     // Check that no input is blank
     if (password == '' || username == '') {
         log("Please enter a valid username and password")
+        document.getElementById("error").style.display = "block"
         return
     }
 
     // Make sure passwords match
     else if (password != enterPassword) {
         log("Passwords do not match. Try again.")
+        document.getElementById("error").innerHTML = "Passwords do not match. Try again."
+        document.getElementById("error").style.display = "block"
         return
     }
 
@@ -46,6 +49,8 @@ function createAccount(e) {
             location.href = "user.html"
         } else if (request.status === 400) {
             log(request.response)
+            document.getElementById("error").innerHTML = "User already exists."
+            document.getElementById("error").style.display = "block"
         } else {
             log('Server error')
         }

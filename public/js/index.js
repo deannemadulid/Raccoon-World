@@ -32,7 +32,7 @@ function signIn(e) {
                 }
             } else {
                 console.error(request.statusText)
-                document.getElementById("error").style.visiblity = "visible"
+                document.getElementById("error").style.display = "block"
             }
         }
     }

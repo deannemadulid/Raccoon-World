@@ -78,11 +78,11 @@ app.post('/login', (req, res) => {
 	User.findOne({username: req.body.username})
 	.then((user) => {
 		if (!user) {
-			res.status(400).send("Invalid username.")
+			res.status(400).send("Invalid username or password.")
 		} else {
 			bcrypt.compare(req.body.password, user.password).then((result) => {
 				if (!result) {
-					res.status(400).send("Invalid password.")
+					res.status(400).send("Invalid username or password.")
 				} else {
 					res.send(user)
 				}
