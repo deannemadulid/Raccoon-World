@@ -83,7 +83,7 @@ h1 {
     color: gold;
 }
 
-.error {
+#error {
     padding: 10px;
     background-color: rgb(224, 60, 60);
     color: white;
