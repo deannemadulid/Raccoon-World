@@ -82,3 +82,15 @@ h1 {
 .box .signUp:hover {
     color: gold;
 }
+
+.error {
+    padding: 10px;
+    background-color: rgb(224, 60, 60);
+    color: white;
+    text-align: center;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 10px;
+    visibility: hidden;
+}
