@@ -74,6 +74,18 @@ app.get('/users', (req, res) => {
 	})
 })
 
+// Get a user by username
+app.get('/users/:username', (req, res) => {
+	const username = req.params.username
+
+	User.findOne({username: username}).then((user) => {
+		log(user)
+		res.send(user)
+	}, (error) => {
+		res.status(500).send(error)
+	})
+})
+
 app.post('/login', (req, res) => {
 	User.findOne({username: req.body.username})
 	.then((user) => {

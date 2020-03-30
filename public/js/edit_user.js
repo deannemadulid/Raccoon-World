@@ -15,6 +15,7 @@ edit_password.addEventListener('click', editPassword)
 edit_avatar.addEventListener('click', editAvatar)
 delete_user.addEventListener('click', deleteUser)
 
+loadPage()
 
 function goBack(e) {
     e.preventDefault();
@@ -26,15 +27,24 @@ function saveChanges(e) {
 	e.preventDefault();
 
 	const username = document.querySelector('#new_username').value
+    const change_password = document.getElementById('change_password')
     const password = document.querySelector('#new_password').value
     const avatar = getAvatar()
 
-    if (username && password) {
-    	// Check if username already exists in system, if it does, don't accept
-    	// Otherwise save username, password, and avatar to the database
-    	location.href = "users_list.html"
+
+    if (change_password.style.display === "none" && username) {
+        // save username and avatar
+    } else if (change_password.style.display != "none") {
+        if (username && password) {
+            // Check if username already exists in system, if it does, don't accept
+            // Otherwise save username, password, and avatar to the database
+            
+            location.href = "users_list.html"
+        } else {
+            alert("Enter a username and password")
+        }
     } else {
-    	log("Enter a username and password")
+        alert("Enter a username")
     }
 }
 
@@ -64,7 +74,6 @@ function editPassword(e) {
     e.preventDefault();
 
     const change_password = document.getElementById('change_password')
-    log(change_password)
 
     change_password.style.display = "inline-block";
     edit_password.style.display = "none";
@@ -76,7 +85,6 @@ function editAvatar(e) {
     const raccoons = document.getElementById('raccoons')
 
     raccoons.style.display = "block"
-    log(raccoons)
 }
 
 function deleteUser(e) {
@@ -88,4 +96,41 @@ function deleteUser(e) {
         // Delete user
         location.href = "users_list.html"
     }
+}
+
+function loadPage() {
+    const username = sessionStorage.getItem('editUser');
+    sessionStorage.setItem('editUser', '')
+
+    const url = '/users/' + username;
+    fetch(url)
+    .then((res) => {
+        if (res.status === 200) {
+            return res.json()
+        } else {
+            alert('Could not get user')
+        }
+    })
+    .then((user) => {
+        const userTitle = document.querySelector('#user')
+        userTitle.appendChild(document.createTextNode(user.username))
+
+        const currAvatar = document.querySelector('#curr_avatar')
+        const src = "images/raccoon" + user.avatar.charAt(0).toUpperCase() + user.avatar.slice(1) + ".png"
+        currAvatar.setAttribute("src", src)
+
+        const avatars = document.getElementsByName('avatar');
+        for (let i = 0; i < avatars.length; i++) {
+            if (user.avatar === avatars[i].value) {
+                avatars[i].checked = true;
+                break;
+            }
+        }
+
+        const usernameField = document.querySelector('#new_username')
+        usernameField.value = user.username
+
+    }).catch((error) => {
+        log(error)
+    })
 }

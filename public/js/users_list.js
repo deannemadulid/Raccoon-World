@@ -28,6 +28,7 @@ function editUserPage(e) {
     if (e.target.classList.contains('modify_user_button')) {
     	const userRow = e.target.parentElement.parentElement
 		const user = userRow.cells[1].textContent // username of user to modify
+		sessionStorage.setItem('editUser', user);
 
     	location.href = "edit_user.html"
     }
@@ -40,8 +41,8 @@ function search(e) {
 	const searchUser = RegExp(search_user)
 
 	const url = '/users';
-	fetch(url).
-	then((res) => {
+	fetch(url)
+	.then((res) => {
 		if (res.status === 200) {
 			return res.json()
 		} else {
