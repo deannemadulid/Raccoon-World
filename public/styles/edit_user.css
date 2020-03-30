@@ -33,7 +33,7 @@ h1, h2 {
 }
 
 input[type=text], select, textarea {
-    width: 30%;
+    width: 200px;
     padding: 12px;
     margin-left: 2px;
     border: 1px solid #ccc;
@@ -102,12 +102,19 @@ button:hover {
   cursor: pointer;
 }
 
-#new_username {
-    cursor: not-allowed;
+#userpass {
+    text-align: center;
+    width: 100%;
 }
 
-#new_password {
+.textfield {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#new_username {
     cursor: not-allowed;
+    background-color: lightgrey;
 }
 
 [type=radio]:checked + img {
@@ -125,6 +132,27 @@ button:hover {
     background-color: lightgrey;
 }
 
+#edit_password:hover {
+    background-color: lightgrey;
+}
+
+#edit_password {
+    display: block;
+    margin: auto;
+    background-color: white;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+#change_password {
+    display: none;
+    margin-left: 20px;
+}
+
+#delete_user:hover {
+    background-color: darksalmon;
+}
+
 #delete_user {
     display: block;
     margin: auto;
@@ -139,4 +167,3 @@ button:hover {
     margin-top: 10px;
     max-height: 200px;
 }
-

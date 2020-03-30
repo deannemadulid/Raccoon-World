@@ -56,15 +56,18 @@ function editUserName(e) {
 
     new_username.disabled = false;
     new_username.style.cursor = "auto";
+    new_username.style.backgroundColor = "white";
+    edit_username.style.display = "none";
 }
 
 function editPassword(e) {
     e.preventDefault();
 
-    const new_password = document.getElementById('new_password')
+    const change_password = document.getElementById('change_password')
+    log(change_password)
 
-    new_password.disabled = false;
-    new_password.style.cursor = "auto";
+    change_password.style.display = "inline-block";
+    edit_password.style.display = "none";
 }
 
 function editAvatar(e) {
@@ -79,7 +82,8 @@ function editAvatar(e) {
 function deleteUser(e) {
     e.preventDefault();
 
-    const user = document.querySelector('#user')
+    const user = document.querySelector('#user').textContent
+    log(user)
     if (confirm(`Are you sure you want to delete ${user}`)) {
         // Delete user
         location.href = "users_list.html"
