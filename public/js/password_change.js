@@ -15,7 +15,7 @@ function changePassword(e) {
 
     // No password enetered
     if (pass == '') {
-        log("You must enter a valid password.")
+        log("Password cannot be empty.")
         document.getElementById("error").style.display = "block"
         return
     }
@@ -29,7 +29,7 @@ function changePassword(e) {
     }
 
     const request = new XMLHttpRequest()
-    const url = '/signup'
+    const url = '/pass'
     request.open('PATCH', url)
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
@@ -45,7 +45,6 @@ function changePassword(e) {
     }
 
     const username = sessionStorage.getItem('userName')
-    const avatar = sessionStorage.getItem('userColour')
-    const data = JSON.stringify({"username": username, "avatar": avatar, "password":pass})
+    const data = JSON.stringify({"username": username, "password": pass})
     request.send(data)
 }
