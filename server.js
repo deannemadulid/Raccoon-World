@@ -79,11 +79,56 @@ app.get('/users/:username', (req, res) => {
 	const username = req.params.username
 
 	User.findOne({username: username}).then((user) => {
-		log(user)
-		res.send(user)
+		if (!user) {
+			res.status(404).send()
+		} else {
+			res.send(user)
+		}
 	}, (error) => {
 		res.status(500).send(error)
 	})
+})
+
+// Update user
+app.patch('/users/:username/edit', (req, res) => {
+	const oldUsername = req.params.username
+	const newUsername = req.body.username
+	const avatar = req.body.avatar
+	const password = req.body.password
+
+	const update = {
+		username: newUsername,
+		avatar: avatar
+	}
+
+	if (password) {
+		bcrypt.genSalt(10, (err, salt) => {
+			bcrypt.hash(password, salt, (err, hash) => {
+				update.password = hash;
+				User.findOneAndUpdate({username: oldUsername}, {$set: update}, {new: true})
+				.then((user) => {
+					if (!user) {
+						res.status(404).send()
+					} else {
+						res.send(update)
+					}
+				}, (error) => {
+					res.status(500).send(error)
+				})
+			})
+		})
+	} else {
+		User.findOneAndUpdate({username: oldUsername}, {$set: update}, {new: true})
+		.then((user) => {
+			if (!user) {
+				res.status(404).send()
+			} else {
+				res.send(update)
+			}
+		}, (error) => {
+			res.status(500).send(error)
+		})
+	}
 })
 
 app.post('/login', (req, res) => {
