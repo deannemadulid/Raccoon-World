@@ -169,16 +169,26 @@ app.patch('/signup', (req, res) => {
 // Change user password
 app.patch('/pass', (req, res) => {
 	log('Password change request')
-	User.findOneAndUpdate({username: req.body.username},
-		{$set: {'password': req.body.password}},)
-	.then((user) => {
-		if (!user) {
-			res.status(400).send("Invalid username.")
-		} else {
-			res.send(user)
-		}
-	}, (error) => {
-		res.status(500).send(error)
+	const username = req.params.username
+
+	const update = {
+		username: username
+	}
+
+	bcrypt.genSalt(10, (err, salt) => {
+		bcrypt.hash(password, salt, (err, hash) => {
+			update.password = hash;
+			User.findOneAndUpdate({username: username}, {$set: update}, {new: true})
+			.then((user) => {
+				if (!user) {
+					res.status(404).send()
+				} else {
+					res.send(update)
+				}
+			}, (error) => {
+				res.status(500).send(error)
+			})
+		})
 	})
 })
 
