@@ -44,6 +44,8 @@ function changePassword(e) {
         }
     }
 
-    const data = JSON.stringify({"username": sessionStorage.getItem('userName'),"password":pass})
+    const username = sessionStorage.getItem('userName')
+    const avatar = sessionStorage.getItem('userColour')
+    const data = JSON.stringify({"username": username, "avatar": avatar, "password":pass})
     request.send(data)
 }
