@@ -30,14 +30,23 @@ function saveChanges(e) {
 	const username = document.querySelector('#new_username').value
     const change_password = document.getElementById('change_password')
     const password = document.querySelector('#new_password').value
+    
+    const curr_avatar = document.querySelector('#curr_avatar').src.match(/images\/raccoon(.*)/)[1]
+                        .toLowerCase().slice(0, -4)
     const avatar = getAvatar().value
 
     const passwordDisplay = window.getComputedStyle(change_password).getPropertyValue("display");
+    // No username entered
     if (!username) {
         alert("Enter a username")
         return
+    // No password entered
     } else if (passwordDisplay !== "none" && !password) {
         alert("Enter a password")
+        return
+    // Nothing has been changed
+    } else if (passwordDisplay === "none" && username === oldUsername && avatar === curr_avatar) {
+        alert("No changes have been made")
         return
     }
 
