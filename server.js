@@ -169,7 +169,8 @@ app.patch('/signup', (req, res) => {
 // Change user password
 app.patch('/pass', (req, res) => {
 	log('Password change request')
-	const username = req.params.username
+	const username = req.body.username
+	const password = req.body.password
 
 	const update = {
 		username: username
