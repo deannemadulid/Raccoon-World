@@ -13,21 +13,37 @@ function changePassword(e) {
     const pass = document.querySelector('#newPass').value
     const rePass = document.querySelector('#newPassRe').value
 
+    // No password enetered
     if (pass == '') {
-        location.href = "password_change.html"
         log("You must enter a valid password.")
-    }
-    // Check if passwords match
-    else if (pass == rePass) {
-        // Store new password
-        location.href = "user_page.html"
-        log("Your password has been changed.")
+        document.getElementById("error").style.display = "block"
+        return
     }
 
     // Passwords do not match
-    // Refresh page to clear entered information
-    else {
-        location.href = "password_change.html"
+    else if (pass !== rePass) {
         log("Passwords do not match.")
+        document.getElementById("error").innerHTML = "Passwords do not match. Try again."
+        document.getElementById("error").style.display = "block"
+        return
     }
+
+    const request = new XMLHttpRequest()
+    const url = '/signup'
+    request.open('PATCH', url)
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    request.onload = function() {
+        log('Status: ',request.status)
+        if (request.status === 200) {
+            location.href = "user_page.html"
+        } else if (request.status === 400) {
+            log(request.response)
+        } else {
+            log('Server error')
+        }
+    }
+
+    const data = JSON.stringify({"username": sessionStorage.getItem('userName'),"password":pass})
+    request.send(data)
 }
