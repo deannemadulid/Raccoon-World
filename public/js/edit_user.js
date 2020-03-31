@@ -26,26 +26,76 @@ function goBack(e) {
 function saveChanges(e) {
 	e.preventDefault();
 
+    const oldUsername = document.querySelector('#user').textContent
 	const username = document.querySelector('#new_username').value
     const change_password = document.getElementById('change_password')
     const password = document.querySelector('#new_password').value
-    const avatar = getAvatar()
+    const avatar = getAvatar().value
 
-
-    if (change_password.style.display === "none" && username) {
-        // save username and avatar
-    } else if (change_password.style.display != "none") {
-        if (username && password) {
-            // Check if username already exists in system, if it does, don't accept
-            // Otherwise save username, password, and avatar to the database
-            
-            location.href = "users_list.html"
-        } else {
-            alert("Enter a username and password")
-        }
-    } else {
+    const passwordDisplay = window.getComputedStyle(change_password).getPropertyValue("display");
+    if (!username) {
         alert("Enter a username")
+        return
+    } else if (passwordDisplay !== "none" && !password) {
+        alert("Enter a password")
+        return
     }
+
+    const url = '/users'
+    fetch(url)
+    .then((res) => {
+        if (res.status === 200) {
+            return res.json()
+        }
+    })
+    .then((json) => {
+        const userExist = json.filter((user) => user.username === username)
+        if (oldUsername === username || userExist.length === 0) {
+            return true
+        } else {
+            return false
+        }
+    }).then((result) => {
+        if (result === false) {
+            alert("The username is already taken")
+            return
+        }
+
+        updateUser(oldUsername, username, avatar, password)
+    }).catch((error) => {
+        log(error)
+    })
+}
+
+function updateUser(oldUser, newUser, avatar, password) {
+    const url = '/users/' + oldUser + '/edit';
+
+    let data = {
+        username: newUser,
+        avatar: avatar,
+        password: password
+    }
+
+    const request = new Request(url, {
+        method: 'PATCH', 
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
+            'Accept-Encoding': 'gzip, deflate, br'
+        },
+    });
+
+    fetch(request)
+    .then(function(res) {
+        if (res.status === 200) {
+            alert("Changes have been saved")
+            location.href = "users_list.html"
+        }
+    }).catch((error) => {
+        alert("Could not save changes")
+        log(error)
+    })
 }
 
 function getAvatar() {
