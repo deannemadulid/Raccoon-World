@@ -164,7 +164,7 @@ function checkRaccoonPresence() {
     .then((json) => {  // the resolved promise with the JSON body
         clearRaccoons();
         json.onlineUsers.map((s) => {
-            if (s.room == currentRoom && !raccoonInArray(s.username)) {
+            if (s.room == currentRoom && !raccoonInArray(s.username) && new Date() - new Date(s.time) <= GAME_REFRESH_RATE) {
                 const newRaccoon = new Raccoon(s.avatar, s.username)
                 raccoons.push(newRaccoon);
             }
