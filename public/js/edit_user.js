@@ -150,10 +150,35 @@ function deleteUser(e) {
     e.preventDefault();
 
     const user = document.querySelector('#user').textContent
-    log(user)
-    if (confirm(`Are you sure you want to delete ${user}`)) {
-        // Delete user
-        location.href = "users_list.html"
+    
+    const url = '/users/' + user
+    log(url)
+    const request = new Request(url, {
+        method: 'DELETE', 
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
+        },
+    });
+
+    if (confirm(`Are you sure you want to delete ${user}?`)) {
+
+	    fetch(request)
+	    .then((res) => {
+	        if (res.status === 200) {
+	            return res.json()
+	        } else {
+	            alert('Error: could not delete user')
+	            return
+	        }
+	    })
+	    .then((user) => {
+	        alert(`Succesfully deleted ${user.username}`)
+	        location.href = "users_list.html"
+
+	    }).catch((error) => {
+	        log(error)
+	    })
     }
 }
 

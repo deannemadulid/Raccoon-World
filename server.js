@@ -89,6 +89,21 @@ app.get('/users/:username', (req, res) => {
 	})
 })
 
+// Delete user
+app.delete('/users/:username', (req, res) => {
+	const username = req.params.username
+
+	User.findOneAndDelete({username: username}).then((user) => {
+		if (!user) {
+			res.status(404).send()
+		} else {
+			res.send(user)
+		}
+	}, (error) => {
+		res.status(500).send(error)
+	})
+})
+
 // Update user
 app.patch('/users/:username/edit', (req, res) => {
 	const oldUsername = req.params.username
