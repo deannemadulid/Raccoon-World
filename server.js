@@ -270,11 +270,11 @@ app.get('/onlineUsers', (req, res) => {
 	})
 })
 
-/// a DELETE route to remove user's previous check-in
+/// a DELETE route to remove user check-ins older than 5 seconds
 app.delete('/onlineUsers', (req, res) => {
 
 	// Delete a student by their id
-	OnlineUser.deleteOne({username: req.body.username}).then((onlineUser) => {
+	OnlineUser.deleteMany({time: {$lt: req.body.time}}).then((onlineUser) => {
 		res.send(onlineUser)
 	}).catch((error) => {
 		res.status(500).send() // server error, could not delete.

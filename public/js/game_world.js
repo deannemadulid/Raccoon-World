@@ -127,18 +127,17 @@ function loadRoom4() {
 
 }
 
-function deletePreviousSignal() {
+function deletePreviousSignals() {
     const request = new XMLHttpRequest()
     const url = '/onlineUsers'
     request.open('DELETE', url)
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-    const data = JSON.stringify({"username":uName})
+    const data = JSON.stringify({"time":new Date() - GAME_REFRESH_RATE})
     request.send(data)
 }
 
 function signalRaccoonPresence(roomNum) {
-    deletePreviousSignal()
     const request = new XMLHttpRequest()
     const url = '/onlineUsers'
     request.open('POST', url)
@@ -146,6 +145,7 @@ function signalRaccoonPresence(roomNum) {
 
     const data = JSON.stringify({"time":new Date(),"username":uName, "avatar":uColour, "room":roomNum})
     request.send(data)
+    deletePreviousSignals()
 }
 
 function checkRaccoonPresence() {
@@ -164,7 +164,7 @@ function checkRaccoonPresence() {
     .then((json) => {  // the resolved promise with the JSON body
         clearRaccoons();
         json.onlineUsers.map((s) => {
-            if (s.room == currentRoom && ((new Date()) - new Date(s.time)) <= GAME_REFRESH_RATE && s.username != raccoons[0].name) {
+            if (s.room == currentRoom && !raccoonInArray(s.username)) {
                 const newRaccoon = new Raccoon(s.avatar, s.username)
                 raccoons.push(newRaccoon);
             }
@@ -173,6 +173,15 @@ function checkRaccoonPresence() {
     }).catch((error) => {
         log(error)
     })
+}
+
+function raccoonInArray(raccoonName) {
+    for (let i = 0; i < raccoons.length; i++) {
+        if (raccoonName == raccoons[i].name) {
+          return true;
+        }
+    }
+    return false;
 }
 
 function placePlayer() {
@@ -266,9 +275,11 @@ function moveRaccoon(e) {
         const worldRect = worldWindow.getBoundingClientRect();
         const playerX = e.clientX - worldRect.left - (movingRaccoon.offsetWidth / 2);
         const playerY = e.clientY - worldRect.top - (movingRaccoon.offsetHeight / 3);
-        movingRaccoon.style.left = playerX + "px";
-        movingRaccoon.style.top = playerY + "px";
-        playerPos = new Coordinates(playerX,playerY)
+        if (playerX >= 0 && playerX < 540 && playerY >= 0 && playerY < 295) {
+            movingRaccoon.style.left = playerX + "px";
+            movingRaccoon.style.top = playerY + "px";
+            playerPos = new Coordinates(playerX,playerY)
+        }
     }
 }
 
