@@ -67,7 +67,7 @@ app.post('/signup', (req, res) => {
 
 // Route for getting all users
 app.get('/users', (req, res) => {
-	User.find().then((user) => {
+	User.find().sort( { username: 1 } ).then((user) => {
 		res.send(user)
 	}, (error) => {
 		res.status(500).send(error)
