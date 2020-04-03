@@ -1,0 +1,147 @@
+How to use Team 53's Web Application:
+
+
+As a User:
+Start by going to the web address <insert address> in your browser.
+From here, you can log in or go to the account sign up page.
+There are also links on the navigation bar leading to "About" and "Help" pages.
+You can login with the username "user" and password "user".
+This is the only user already loaded in the database. 
+This takes you to the User page.
+
+The "About" page explains the game.
+The "Help" page contains some FAQ with answers.
+The navigation bar will now also have a "Home" button which takes you back to the login page.
+If you are logged in then there will also be a "Return to User Page" button on the screen.
+
+On the sign up page you can create a new user.
+On the left side of the screen you can change your avatar. 
+The currently selected avatar will be larger and darker than the others.
+The blue avatar is chosen by default.
+On the right side of the screen you can enter your username and password.
+The username cannot already be in use by another user.
+If the account creation is successful theen you will be taken to the User page.
+
+Once logged in, every screen will have a "Log Out" button which returns you to the login page.
+From here, you can click "View Profile" to go to a page with links to other
+pages where you will be able to change your password or avatar.
+Click on "Enter Game".
+
+This takes you to the game screen.
+You will be able to see and chat with other users if they are in the same room as you. 
+To chat with other users, click on the box on the left side of the game screen that says "Chat here".
+Then you can type a message and either hit "post" or the enter key.
+You will be able to travel between rooms by clicking on the orange arrows.
+You can move around the room by clicking anywhere within the game window.
+From here, you can click on "Exit Game" to return to the user page, or "Log Out"
+to return to the login page.
+
+
+As an Admin:
+Start by going to the web address <insert address> in your browser.
+Log in with username "admin" and password "admin".
+This is the only admin loaded in the database and it is not possible to create another using the app.
+
+This takes you to the Admin page.
+Once logged in, every screen will have a "Log Out" button which returns you to the login page.
+From here, you can click "View Profile" to go to a page with links to other
+pages where you will be able to change your password.
+You can click on "Enter Game" or "View/Modify Users".
+
+This takes you to the game screen.
+You will be able to see and chat with other users if they are in the same room as you. 
+To chat with other users, click on the box on the left side of the game screen that says "Chat here".
+Then you can type a message and either hit "post" or the enter key.
+You will be able to travel between rooms by clicking on the orange arrows.
+You can move around the room by clicking anywhere within the game window.
+From here, you can click on "Exit Game" to return to the user page, or "Log Out"
+to return to the login page.
+
+Clicking on "View/Modify Users" takes you to the user list screen.
+All currently signed up users will be listed in this table.
+You can search for a particular user by entering their username in the search bar and pressing "Search".
+You can click on "Add new user" or "Edit User" which is next to each user.
+
+Clicking on "Add new user" takes you to the new user page.
+Here you can create a new user with a username and password and pick an avatar for them.
+The avatar currently selected is shown by a red box.
+You can either click "Add new user" to create the user or "Cancel" to go back to the previous page.
+
+Clicking on "Edit User" takes you to the page to edit the selected user.
+Here you will be able to click "Edit avatar" to change the users avatar.
+The avatar currently selected is shown by a red box.
+You can also click "Edit" next to the "Username" to change the users current username.
+You can click "Change Password" to be able to change the users password.
+You can click "Delete User" to delete the user.
+A box will pop up confirming that you want to delete the user.
+Press "Ok" to confirm.
+You can click "Save changes" to return you to the user list page or "Cancel" to do the same without saving.
+
+
+Overview of routes:
+POST signup:
+Expecting a username: string, password: string, avatar: string, admin: boolean
+Uses these to create a new user in the database with a hashed password.
+Returns the newly created user.
+
+GET users:
+No data expected to be sent.
+Gets all the users in the database.
+
+GET user:
+Expecting a username: string.
+Gets information for one user.
+
+DELETE user:
+Expecting a username: string.
+Deletes the user from the database.
+Returns the updated user database.
+
+PATCH user:
+Expecting a username: string, avatar: string, password: string.
+If no password was entered then only the users username and avatar are changed.
+Else the password is hashed and all three are updated.
+Returns the updated user.
+
+POST login:
+Expecting a username: string, password: string.
+Creates a new logged in user.
+Returns the new user.
+
+PATCH signup:
+Expecting a username: string, avatar: string.
+Updates the username and avatar for the user.
+Returns the updated user.
+
+PATCH pass:
+Expecting a username: string, password: string.
+Updates the username and password for the user.
+Hashes the password in the process.
+Returns the updated user.
+
+POST chatlog:
+Expecting time: Date, user: string, msg: string.
+Adds the message to the chatlog database.
+Returns the added message.
+
+GET chatlog:
+No data expected.
+Returns the chatlog.
+
+DELETE chatlog:
+No data expected.
+Deletes the entire chatlog.
+
+POST onlineUsers:
+Expecting time: Date, username: string, avatar: string, room: number.
+Adds the user to the database of users currently online.
+Returns the added user.
+
+GET onlineUsers:
+No data expected.
+Returns all users currently online.
+
+DELETE onlineUsers:
+Expecting time: Date.
+Deletes all users that were added to the database more than 5 seconds ago.
+Returns the updated onlineUsers database. 
