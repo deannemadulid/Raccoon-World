@@ -146,13 +146,17 @@ app.patch('/users/:username/edit', (req, res) => {
 	}
 })
 
+// Add new logged in user
 app.post('/login', (req, res) => {
-	User.findOne({username: req.body.username})
+	const username = req.body.username
+	const password = req.body.password
+
+	User.findOne({username: username})
 	.then((user) => {
 		if (!user) {
 			res.status(400).send("Invalid username or password.")
 		} else {
-			bcrypt.compare(req.body.password, user.password).then((result) => {
+			bcrypt.compare(password, user.password).then((result) => {
 				if (!result) {
 					res.status(400).send("Invalid username or password.")
 				} else {
@@ -167,9 +171,12 @@ app.post('/login', (req, res) => {
 
 // Change user avatar
 app.patch('/signup', (req, res) => {
+	const username = req.body.username 
+	const avatar = req.body.avatar
+
 	log('Colour change request')
-	User.findOneAndUpdate({username: req.body.username},
-		{$set: {'avatar': req.body.avatar}},)
+	User.findOneAndUpdate({username: username},
+		{$set: {'avatar': avatar}},)
 	.then((user) => {
 		if (!user) {
 			res.status(400).send("Invalid username.")
@@ -183,7 +190,6 @@ app.patch('/signup', (req, res) => {
 
 // Change user password
 app.patch('/pass', (req, res) => {
-	log('Password change request')
 	const username = req.body.username
 	const password = req.body.password
 
