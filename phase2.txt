@@ -46,9 +46,9 @@ This takes you to the Admin page.
 Once logged in, every screen will have a "Log Out" button which returns you to the login page.
 From here, you can click "View Profile" to go to a page with links to other
 pages where you will be able to change your password.
-You can click on "Enter Game" or "View/Modify Users".
+You can click on "Enter Game", "View/Modify Users" or "View Chatlog".
 
-This takes you to the game screen.
+Clicking on "Enter Game" takes you to the game screen.
 You will be able to see and chat with other users if they are in the same room as you. 
 To chat with other users, click on the box on the left side of the game screen that says "Chat here".
 Then you can type a message and either hit "post" or the enter key.
@@ -56,6 +56,12 @@ You will be able to travel between rooms by clicking on the orange arrows.
 You can move around the room by clicking anywhere within the game window.
 From here, you can click on "Exit Game" to return to the user page, or "Log Out"
 to return to the login page.
+
+Clicking on "View Chatlog" takes you to the chatlog screen.
+Here you will be able to see all messages sent by any user currently stored in the database.
+If more messages are sent since when the page was initially loaded then you will need to refresh the page to see them.
+You can click "Back" to go back to the previous page.
+You can also click "Purge Chatlog" to delete all messages from the chatlog database. 
 
 Clicking on "View/Modify Users" takes you to the user list screen.
 All currently signed up users will be listed in this table.
