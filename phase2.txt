@@ -95,7 +95,7 @@ Gets information for one user.
 DELETE user:
 Expecting a username: string.
 Deletes the user from the database.
-Returns the updated user database.
+Returns the deleted user.
 
 PATCH user:
 Expecting a username: string, avatar: string, password: string.
@@ -131,6 +131,7 @@ Returns the chatlog.
 DELETE chatlog:
 No data expected.
 Deletes the entire chatlog.
+Returns the deleted chatlog.
 
 POST onlineUsers:
 Expecting time: Date, username: string, avatar: string, room: number.
@@ -144,4 +145,4 @@ Returns all users currently online.
 DELETE onlineUsers:
 Expecting time: Date.
 Deletes all users that were added to the database more than 5 seconds ago.
-Returns the updated onlineUsers database. 
+Returns the deleted user. 
