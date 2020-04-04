@@ -58,10 +58,15 @@ button {
     border: none;
     cursor: pointer;
     margin: 0 auto;
+    margin-bottom: 10px;
     display: block;
     border-radius: 5px;
 }
 
 button:hover {
     background-color: #008B8B;
+}
+
+#modifyUsers {
+    display: none;
 }
