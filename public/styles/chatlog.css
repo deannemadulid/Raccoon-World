@@ -1,0 +1,87 @@
+body {
+    background-color: rgb(210, 232, 241);
+}
+
+.nav {
+    overflow: hidden;
+    background-color: #00BFFF;
+    border-radius: 5px;
+}
+
+.nav a {
+    float: left;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav a:hover {
+    color: blue;
+    background-color: white;
+}
+
+.nav a.logout {
+    float: right;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+
+.tables {
+    margin: auto;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    background-color: #00FFFF;
+    border: none;
+    cursor: pointer;
+    margin: auto;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #008B8B;
+}
+
+#buttons {
+    margin: auto;
+}
+
+.userName {
+    color: rgb(0, 0, 187);
+    padding-left: 5px;
+    padding-right: 10px;
+    max-width: 70px;
+}
+
+.date {
+    padding-right: 5px;
+    color: rgb(136, 136, 136);
+}
+
+.message {
+    padding-right: 10px;
+    overflow-wrap: break-word;
+    max-width: 500px;
+    width: 500px;
+}
+
+#chatbg {
+    margin: auto;
+    background-color: rgb(145, 238, 199);
+    max-width: 800px;
+    height: 450px;
+    overflow-y: scroll;
+    border-radius: 20px;
+}
