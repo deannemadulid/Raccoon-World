@@ -1,6 +1,6 @@
 # team53
 
-[This game] is an interactive chatroom that allows users to meet and communicate with others.
+Raccoon World is an interactive chatroom that allows users to meet and communicate with others.
 
 Players can choose between different avatar colours to represent them, and enter a room to join in on a conversation. Users may also freely travel between multiple rooms in order to participate in whichever conversation they prefer.
 
