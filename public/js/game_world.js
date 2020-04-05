@@ -38,7 +38,7 @@ const arrows = [];
 let playerPos = new Coordinates(0, 0);
 
 function loadRoom1() {
-    worldWindow.querySelector(".backdrop").src = "images/temp_room.png";
+    worldWindow.querySelector(".backdrop").src = "images/area1.png";
     clearRoom();
     currentRoom = 1;
 
@@ -62,7 +62,7 @@ function loadRoom1() {
 }
 
 function loadRoom2() {
-    worldWindow.querySelector(".backdrop").src = "images/temp_room2.png";
+    worldWindow.querySelector(".backdrop").src = "images/area2.png";
     clearRoom();
     currentRoom = 2;
 
@@ -84,7 +84,7 @@ function loadRoom2() {
 }
 
 function loadRoom3() {
-    worldWindow.querySelector(".backdrop").src = "images/temp_room3.png";
+    worldWindow.querySelector(".backdrop").src = "images/area3.png";
     clearRoom();
     currentRoom = 3;
 
@@ -106,7 +106,7 @@ function loadRoom3() {
 }
 
 function loadRoom4() {
-    worldWindow.querySelector(".backdrop").src = "images/temp_room4.png";
+    worldWindow.querySelector(".backdrop").src = "images/area4.png";
     clearRoom();
     currentRoom = 4;
 
