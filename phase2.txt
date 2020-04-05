@@ -2,7 +2,7 @@ How to use Team 53's Web Application:
 
 
 As a User:
-Start by going to the web address <insert address> in your browser.
+Start by going to the web address https://obscure-reef-25837.herokuapp.com/ in your browser.
 From here, you can log in or go to the account sign up page.
 There are also links on the navigation bar leading to "About" and "Help" pages.
 You can login with the username "user" and password "user".
@@ -38,7 +38,7 @@ to return to the login page.
 
 
 As an Admin:
-Start by going to the web address <insert address> in your browser.
+Start by going to the web address https://obscure-reef-25837.herokuapp.com/ in your browser.
 Log in with username "admin" and password "admin".
 This is the only admin loaded in the database and it is not possible to create another using the app.
 
